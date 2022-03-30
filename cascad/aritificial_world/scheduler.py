@@ -5,8 +5,14 @@
 from typing import Dict, Iterator, List, Optional, Union
 from collections import OrderedDict
 # from mesa.time import BaseScheduler
-from aletheia.agents.agent import Agent
-from aletheia.scenario_generator.experiment import Experiment
+# from aletheia.agents.agent import Agent
+# from aletheia.scenario_generator.experiment import Experiment
+from cascad.agents.artificial_participant import Participant as Agent
+from cascad.aritificial_world import World as Experiment
+from cascad.models.kb import Entity, Property
+from cascad.utils.constant import *
+
+
 """
 Mesa Time Module
 ================
@@ -41,13 +47,16 @@ class BaseScheduler:
     Assumes that each agent added has a *step* method which takes no arguments.
     (This is explicitly meant to replicate the scheduler in MASON).
     """
+    _name = "BaseScheduler"
 
-    def __init__(self, model: Experiment) -> None:
+    def __init__(self, model: Experiment, unique_id=None) -> None:
         """Create a new, empty BaseScheduler."""
         self.model = model
         self.steps = 0
         self.time: TimeT = 0
         self._agents: Dict[int, Agent] = OrderedDict()
+        self.entity = Entity(unique_id, self._name)
+        self.entity['name'] = self._name
 
     def add(self, agent: Agent) -> None:
         """Add an Agent object to the schedule.
@@ -64,6 +73,7 @@ class BaseScheduler:
             )
 
         self._agents[agent.unique_id] = agent
+        self.entity[has_agent] = agent.entity
 
     def remove(self, agent: Agent) -> None:
         """Remove all instances of a given agent from the schedule.
@@ -71,6 +81,7 @@ class BaseScheduler:
             agent: An agent object.
         """
         del self._agents[agent.unique_id]
+        self.entity.delete(has_agent, agent.entity)
 
     def step(self) -> None:
         """Execute the step of all the agents, one at a time."""
@@ -150,7 +161,7 @@ class StagedActivation(BaseScheduler):
 
     def __init__(
         self,
-        model: Experiment,
+        model,
         stage_list: Optional[List[str]] = None,
         shuffle: bool = False,
         shuffle_between_stages: bool = False,

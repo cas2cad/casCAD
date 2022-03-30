@@ -36,12 +36,25 @@ class switch(object):
 """
 单例模式
 """
-from threading import Lock
+# from threading import Lock
 
+# class Singleton(type):
+#     _instances = {}
+#     def __call__(cls, *args, **kwargs):
+#         if cls not in cls._instances:
+#                 cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+#         return cls._instances[cls]
+
+import threading
 class Singleton(type):
-    _instances = {}
-    def __call__(cls, *args, **kwargs):
-        if cls not in cls._instances:
-                cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
-        return cls._instances[cls]
+  _instance_lock = threading.Lock()
+  def __call__(cls, *args, **kwargs):
+    if not hasattr(cls, "_instance"):
+      with Singleton._instance_lock:
+        if not hasattr(cls, "_instance"):
+          cls._instance = super(Singleton,cls).__call__(*args, **kwargs)
+    return cls._instance
 
+class Foo(metaclass=Singleton):
+  def __init__(self):
+    pass

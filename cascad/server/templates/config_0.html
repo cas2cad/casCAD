@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block mainbody %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <!--overview start-->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="page-header"><i class="fa fa-search"></i> 配置计算实验 Step 1</h3>
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-home"></i><a href="\">Home</a></li>
+                        <li><i class="fa fa-search"></i><a href="/compute_experiment">计算实验</a></li>
+                        <li>实验配置</li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <form action="/config_experiment/1" method="POST">
+        <section class="panel panel-default">
+            <header class="panel-heading">
+                选择实验场景
+            </header>
+
+            <div class="form-group">
+                <!-- <label for="sel1">Select list:</label> -->
+                <select name="experiment_type" class="form-control" id="sel1">
+
+                    {% for experiment_type in experiment_types %}
+                    <option> {{experiment_type.experiment_type}} </option>
+
+                    {% endfor %}
+                </select>
+            </div>
+
+        </section>
+
+        <section>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <button type="submit" class="btn-primary btn-lg btn-block"> 下一步 </button>
+            </div>
+            <div class="col-md-4"></div>
+        </section>
+
+    </form>
+
+
+</div>
+
+{% endblock %}

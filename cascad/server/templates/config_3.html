@@ -1,0 +1,75 @@
+{% extends "base.html" %} {% block mainbody %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <!--overview start-->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="page-header"><i class="fa fa-search"></i> 配置计算实验 Step 2</h3>
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-home"></i><a href="\">Home</a></li>
+                        <li><i class="fa fa-search"></i><a href="/compute_experiment">计算实验</a></li>
+                        <li>实验配置</li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <form action="/config_experiment/3" method="POST">
+        <section class="panel panel-default">
+            <header class="panel-heading">
+                选择实验场景
+            </header>
+
+            <div class="form-group">
+                <select name="experiment_type" class="form-control" id="sel1">
+                    <option value= {{experiment_type}}>
+                        {{experiment_type}}
+                    </option>
+
+                </select>
+            </div>
+        </section>
+
+        <section class="panel panel-default">
+            <header class="panel-heading">
+                配置智能体
+            </header>
+            {% for agent_type, status in selected_agent_types %}
+
+            <input type="checkbox" name="agent_types" id={ {agent_type.agent_name}} checked={{status=='on' }}> {{agent_type.agent_name}}</input> <br/> {% endfor %}
+        </section>
+
+        <section class="panel panel-default">
+            <header class="panel-heading">
+                配置实验环境
+            </header>
+
+            {% for key in params_result.keys() %}
+
+            <div class="input-group mb-6">
+                <span class="input-group-addon">{{key}} :</span>
+                <input name={{key}} type="text" class="form-control" value={{params_result[key]}}>
+            </div>
+            {% endfor %}
+        </section>
+
+
+        <section class="panel panel-default">
+            <header class="panel-heading">
+                实验结果
+            </header>
+
+        </section>
+
+    </form>
+
+</div>
+
+{% endblock %}

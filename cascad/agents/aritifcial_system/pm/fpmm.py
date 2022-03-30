@@ -25,6 +25,9 @@ class FPMM(Agent):
         }
         pass
 
+    def trade(self)->None: 
+        pass
+
     def close(self) -> None:
         pass
 

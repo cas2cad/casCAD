@@ -1,0 +1,93 @@
+{% extends "base.html" %} {% block mainbody %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <!--overview start-->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="page-header"><i class="fa fa-search"></i> 配置计算实验 Step 2</h3>
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-home"></i><a href="\">Home</a></li>
+                        <li><i class="fa fa-search"></i><a href="/compute_experiment">计算实验</a></li>
+                        <li>实验配置</li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <form action="/config_experiment/3" method="POST">
+        <section class="panel panel-default">
+            <header class="panel-heading">
+                选择实验场景
+            </header>
+
+            <div class="form-group">
+                <select name="experiment_type" class="form-control" id="sel1">
+                    <option value= {{experiment_type}}>
+                        {{experiment_type}}
+                    </option>
+
+                </select>
+            </div>
+        </section>
+
+        <section class="panel panel-default">
+            <header class="panel-heading">
+                配置智能体
+            </header>
+            {% for agent_type, status in selected_agent_types %}
+
+            <input type="checkbox" name="agent_types" id={ {agent_type.agent_name}} checked={{status=='on' }}> {{agent_type.agent_name}}</input> <br/> {% endfor %}
+        </section>
+
+        <section class="panel panel-default">
+            <header class="panel-heading">
+                配置实验环境
+            </header>
+
+            {% for param in experiment_params %}
+
+            <!-- <label for={ {param}}>{{param}}:</label>
+
+            <input type="text" id={{param}} name={{param}} size="10">
+
+            <br/>  -->
+            <!-- <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id={{param}}>{{param}}</span>
+                </div>
+                <input name={{param}} type="text" class="form-control" aria-label="Small" aria-describedby={{param}}>
+            </div> -->
+
+
+            <div class="input-group mb-6">
+                <span class="input-group-addon">{{param}} :</span>
+                <input name={{param}} type="text" class="form-control">
+            </div>
+
+            {% endfor %}
+
+        </section>
+
+
+
+        <section>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <button type="submit" class="btn-primary btn-lg btn-block"> 提交 </button>
+            </div>
+            <div class="col-md-4"></div>
+        </section>
+
+    </form>
+
+
+</div>
+
+{% endblock %}
