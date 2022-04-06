@@ -83,13 +83,19 @@ class TestModel(unittest.TestCase):
         experiment_type.save()
 
     def test_agent_model(self):
-        agent_model = AgentModel(
-            unique_id = "003",
-            agent_id = "000001",
-            step = 1,
-            state = {"amount": 1000}
-        )
-        agent_model.save()
+        # agent_model = AgentModel(
+        #     unique_id = "003",
+        #     agent_id = "000001",
+        #     step = 1,
+        #     state = {"amount": 1000}
+        # )
+        # agent_model.save()
+        agent_models = AgentModel.objects(step=9)
+        result = [
+            (str(agent_model.unique_id)[-4:], agent_model.state['token']) for agent_model in agent_models
+        ]
+        print(result)
+
 
 
 if __name__ == '__main__':

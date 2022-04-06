@@ -3,6 +3,7 @@ from cascad.models.kb import Entity, Property
 from cascad.utils.constant import *
 from cascad.utils import get_id
 from random import choice, random, uniform
+from cascad.models.datamodel import AgentModel
 
 class RandomAgent(Participant):
     _name = 'RandomAgent'
@@ -15,9 +16,20 @@ class RandomAgent(Participant):
         self.target_addresses = []
         self.unique_id = unique_id
         self.world = world
+        AgentModel(
+            unique_id = get_id(),
+            world_id = self.world.unique_id,
+            step = self.world.timeline.get_time(),
+            state = {
+                'token' : self.world.erc20_token.balanceOf(self.unique_id, self.unique_id),
+                'prob': self.prob
+                }
+        ).save()
+
+
         
     def observe(self):
-        self.target_addresses = [agent.unque_id for agent in self.world.scheduler.agents]
+        self.target_addresses = [agent.unique_id for agent in self.world.scheduler.agents]
 
     def step(self):
         self.observe()
@@ -29,4 +41,14 @@ class RandomAgent(Participant):
         address = choice(self.target_addresses)
         self.world.erc20_token.approve(self.unique_id, amount, self.unique_id)
         self.world.erc20_token.transferFrom(self.unique_id, address, amount, self.unique_id)
+        AgentModel(
+            unique_id = get_id(),
+            world_id = self.world.unique_id,
+            step = self.world.timeline.get_time(),
+            state = {
+                'token' : self.world.erc20_token.balanceOf(self.unique_id, self.unique_id),
+                'prob': self.prob
+                }
+        ).save()
+
 

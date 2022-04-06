@@ -44,6 +44,7 @@ class ComputeExperimentModel(BaseModel):
 
 class AgentModel(Document):
     unique_id = StringField(required=True, primary_key=True)
+    world_id = StringField()
     agent_id = StringField()
     step = IntField()
     creation_date = DateTimeField(default=datetime.datetime.now())
@@ -125,5 +126,5 @@ class ConditionResolutionModel(BaseModel):
         return super(ConditionPreparationModel, self).save(*args, **kwargs)
 
 
-class World(BaseModel):
+class WorldModel(BaseModel):
     pass

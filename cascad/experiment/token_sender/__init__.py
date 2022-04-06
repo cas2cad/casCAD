@@ -4,6 +4,7 @@ from cascad.aritificial_world import World
 from cascad.aritificial_world.scheduler import BaseScheduler
 from cascad.aritificial_world.timeline import TimeLine
 from cascad.experiment.cdec import Cdec
+from cascad.models.datamodel import ComputeExperimentModel
 from cascad.models.kb import Entity, Property
 from cascad.utils.constant import *
 from cascad.experiment.token_sender.agents import RandomAgent
@@ -20,8 +21,8 @@ class ERC20TokenWorld(World):
     _name = "ERC20World"
 
     def __init__(self, agent_ratio, agent_number, iter_number):
-
-        self.entity = Entity(unique_id=self.next_id(), name=self._name)
+        self. unique_id = self.next_id()
+        self.entity = Entity(unique_id=self.unique_id, name=self._name)
         self.entity['name'] = self._name
         self.agent_ratio = agent_ratio
         self.agent_number = agent_number
@@ -35,6 +36,11 @@ class ERC20TokenWorld(World):
         self.erc20_address = erc20_addess
         self.entity[has_chain] = self.chain.entity
         self.init_world()
+        ComputeExperimentModel(
+            unique_id=self.unique_id,
+            experiment_name = self._name,
+            status = "Start"
+        ).save()
 
     def init_world(self):
         for i in range(self.agent_number):
@@ -45,6 +51,7 @@ class ERC20TokenWorld(World):
             stmt['has_object'] = agent.entity
             stmt['has_subject'] = self.erc20_token.entity
             stmt['has_amount'] = 1000
+            stmt['name'] = "HasToken"
             self.scheduler.add(agent)
 
     def step(self):
@@ -58,6 +65,10 @@ class ERC20TokenWorld(World):
     def run(self):
         while self.timeline.tick < self.iter_number:
             self.step()
+        
+        model = ComputeExperimentModel.objects.get(unique_id=self.unique_id)
+        model.status = "end"
+        model.save()
 
 class ERC20TokenRandom:
     def __init__(self, agent_ratio, agent_number, iter_number) -> None:

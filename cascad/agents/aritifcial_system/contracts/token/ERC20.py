@@ -17,6 +17,7 @@ class ERC20:
     def __init__(self) -> None:
         self.entity = Entity(get_id(), self._name)
         self._balances[address_1] = 100000000000000
+        self.entity['name'] = self._name
         self.name = "SampleToken"
 
 
@@ -83,7 +84,7 @@ class ERC20:
         return self._totalSupply
 
     def balanceOf(self, address, caller=None)->int:
-        return self._balances[address]
+        return self._balances.get(address, 0)
 
     def transfer(self, recipient, amount, caller=None)->bool:
         self._transfer(caller, recipient, amount)

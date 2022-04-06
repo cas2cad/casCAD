@@ -55,6 +55,9 @@
       <script src="js/respond.min.js"></script>
       <script src="js/lte-ie7.js"></script>
     <![endif]-->
+    {% for jsfile_name in script_list %}
+    <script src="{{ host }}/{{ jsfile_name }}.js"></script>
+    {% endfor %}
 
 </head>
 
@@ -76,7 +79,7 @@
                 <!-- notificatoin dropdown start-->
                 <ul class="nav pull-right top-menu">
                     <li>
-                        <a href='https://github.com/qq547276542/Agriculture_KnowledgeGraph'>
+                        <a href='https://github.com/Will-Holden/cascadv2'>
                             <i class="fa fa-github" aria-hidden="true"> open Github</i>
                         </a>
                     </li>
@@ -158,6 +161,7 @@
     <!-- <script src="/static/js/jquery.autosize.min.js"></script> -->
     <!-- <script src="/static/js/jquery.placeholder.min.js"></script> -->
     <script src="/static/js/gdp-data.js"></script>
+    <script type="text/javascript" src="/static/js/echarts.js"></script>
     <!-- <script src="/static/js/morris.min.js"></script> -->
     <!-- <script src="/static/js/sparklines.js"></script> -->
     <!-- <script src="/static/js/charts.js"></script> -->
@@ -180,7 +184,7 @@
     <script src="/static/js/add.js"></script>
 
     <!-- 分类树脚本 -->
-    <script>
+    <!-- <script>
         $(function() {
             $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
             $('.tree li.parent_li > span').on('click', function(e) {
@@ -195,9 +199,9 @@
                 e.stopPropagation();
             });
         });
-    </script>
+    </script> -->
 
-
+    {% block echartScript %} {% endblock %}
 </body>
 
 </html>
