@@ -23,4 +23,4 @@ services:
     volumes: 
       - ./data/neo4j/data:/var/lib/neo4j/data
       - ./logs/neo4j/log:/var/lib/neo4j/logs
-      - ./logs/neo4j/plugins:/var/lib/neo4j/plugins
+      - ./addons/neo4j/plugins:/var/lib/neo4j/plugins
