@@ -12,12 +12,11 @@ services:
       - ./data/mongo:/data/db
 
   neo4j: 
-    image: neo4j:3.5.22-community 
+    image: neo4j:3.5.17
     container_name: neo4j 
-    privileged: true 
-    restart: always 
     environment: 
-      - NEO4J_AUTH: neo4j/rem8271206
+      - NEO4J_AUTH=neo4j/rem8271206
+      - NEO4JLABS_PLUGINS=["apoc", "n10s"]
     ports: 
       - 7474:7474
       - 7687:7687
