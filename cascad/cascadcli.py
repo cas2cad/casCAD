@@ -35,3 +35,4 @@ if __name__ == '__main__':
     init_parser(parser)
     args = parser.parse_args()
     process(args)
+    

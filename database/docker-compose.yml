@@ -2,6 +2,7 @@ version: '3.7'
 services:
   mongodb_container:
     image: mongo:latest
+    container_name: monogo
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: rootpassword
@@ -9,3 +10,17 @@ services:
       - 27017:27017
     volumes:
       - ./data/mongo:/data/db
+
+  neo4j: 
+    image: neo4j:3.5.22-community 
+    container_name: neo4j 
+    privileged: true 
+    restart: always 
+    environment: 
+      - NEO4J_AUTH: neo4j/rem8271206
+    ports: 
+      - 7474:7474
+      - 7687:7687
+    volumes: 
+      - ./data/neo4j/data:/var/lib/neo4j/data
+      - ./logs/neo4j/log:/var/lib/neo4j/logs
