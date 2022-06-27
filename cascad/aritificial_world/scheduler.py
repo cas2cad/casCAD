@@ -45,7 +45,7 @@ class BaseScheduler:
     """Simplest scheduler; activates agents one at a time, in the order
     they were added.
     Assumes that each agent added has a *step* method which takes no arguments.
-    (This is explicitly meant to replicate the scheduler in MASON).
+    (This is explicitly meant to replicate the scheduler in MASON)  .
     """
     _name = "BaseScheduler"
 

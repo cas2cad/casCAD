@@ -2,7 +2,7 @@ from email.policy import default
 from typing_extensions import Required
 import datetime
 import copy
-from mongoengine import connect, Document, StringField, DictField, ListField, DateTimeField, IntField,FloatField
+from mongoengine import connect, Document, StringField, DictField, ListField, DateTimeField, IntField,FloatField, BooleanField
 from cascad.settings import MONGO_DB, MONGO_HOST, MONGO_PORT, MONGO_USER, MONGO_PWD
 
 # connect(MONGO_DB, username=MONGO_USER, password=MONGO_PWD, host=MONGO_HOST, port=MONGO_PORT)
@@ -128,3 +128,26 @@ class ConditionResolutionModel(BaseModel):
 
 class WorldModel(BaseModel):
     pass
+
+class  TransferSingleModel(BaseModel):
+    operator = StringField()
+    _from = StringField()
+    to = StringField()
+    id = StringField()
+    value = IntField()
+
+class TransferBatchModel(BaseModel):
+    operator = StringField()
+    _from = StringField()
+    to = StringField()
+    ids = ListField()
+    values = ListField()
+
+class ApprovalForAllModel(BaseModel):
+    owner = StringField()
+    operator = StringField()
+    approved = BooleanField()
+
+class URIModel(BaseModel):
+    value = StringField()
+    id = IntField()

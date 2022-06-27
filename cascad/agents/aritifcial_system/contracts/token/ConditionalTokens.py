@@ -52,7 +52,7 @@ class ConditionalTokens(ERC1155):
             pyaoutNumerator = self.payoutNumerators[conditionId]
         ).save()
 
-    def splitPosition(self, collateralToken, parentCollectionId, conditionId, partition, amount, caller=None):
+    def splitPosition(self, collateralToken, parentCollectionId, conditionId, partition, amount, msg=None):
         assert len(partition) > 1, "got empty or singleton partition"
 
         outcomeSlotCount = len(self.payoutNumerators[conditionId])
@@ -62,8 +62,8 @@ class ConditionalTokens(ERC1155):
         fullIndexSet = (1 << outcomeSlotCount) - 1
         freeIndexSet = fullIndexSet
 
-        positionIds = []
-        amounts = []
+        positionIds = [0]*len(partition)
+        amounts = [0] * len(partition)
         for i in range(0, len(partition)):
             indexSet = partition[i]
             assert indexSet >0 and indexSet < fullIndexSet, "got invalid index set"
@@ -71,3 +71,13 @@ class ConditionalTokens(ERC1155):
             assert (indexSet & freeIndexSet) == indexSet, "partition not disjoint"
 
             freeIndexSet ^= indexSet
+            positionIds[i] = CTHelpers.getPositionId(
+                collateralToken, CTHelpers.getCollectionId(parentCollectionId, conditionId, indexSet)
+            )
+            amounts[i] = amount
+
+        if freeIndexSet == 0 :
+            if parentCollectionId == 0:
+                assert collateralToken.transferPointFrom(msg.sender, self.address, amount)
+                pass
+            pass
