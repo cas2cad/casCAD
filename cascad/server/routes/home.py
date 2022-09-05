@@ -7,16 +7,6 @@ from cascad.experiment.token_sender import ERC20TokenWorld
 
 home_bp = Blueprint('home_bp', __name__)
 
-def bar_base() -> Scatter:
-    c = (
-        Scatter()
-        .add_xaxis(["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"])
-        .add_yaxis("商家A", [5, 20, 36, 10, 75, 90])
-        .add_yaxis("商家B", [15, 25, 16, 55, 48, 8])
-        .set_global_opts(title_opts=opts.TitleOpts(title="代币分布图"))
-    )
-    return c
-
 def token_discribute(max_step, world_id) ->  Scatter:
     agent_models = AgentModel.objects(step=max_step, world_id=world_id)
     result = [

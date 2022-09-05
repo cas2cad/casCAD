@@ -21,12 +21,15 @@ class ChainBase(metaclass=Singleton):
     def gen_address(self):
         return str(uuid.uuid4())
 
-    def add_contract(self, contract):
+    def add_contract(self, contract, invoker=None):
         address = self.gen_address()
         self.store[address] = contract
         self.entity[has_contract] = contract.entity
         contract.entity[has_address] = address
         return address
+
+    def invoke_method(self, contract, invoker):
+        pass
 
     def get_contract(self, address):
         return self.store[address]

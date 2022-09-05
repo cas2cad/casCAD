@@ -78,6 +78,22 @@ class ConditionalTokens(ERC1155):
 
         if freeIndexSet == 0 :
             if parentCollectionId == 0:
-                assert collateralToken.transferPointFrom(msg.sender, self.address, amount)
+                assert collateralToken.transferPointFrom(msg.sender, self.address, amount), "could not receive collateral tokens"
+                pass
+            else:
+                self._burn(msg.sender, 
+                CTHelpers.getPositionId(collateralToken, parentCollectionId),
+                amount
+                )
                 pass
             pass
+        else:
+            self._burn(msg.sender,
+            CTHelpers.getPositionId(collateralToken, 
+                                    CTHelpers.getCollectionId(parentCollectionId, conditionId, fullIndexSet ^ freeIndexSet)),
+                                    amount
+                       )
+        
+        self._batchMint(msg.sender, positionIds, amounts, "")
+
+        

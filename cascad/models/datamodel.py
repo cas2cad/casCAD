@@ -1,5 +1,4 @@
 from email.policy import default
-from typing_extensions import Required
 import datetime
 import copy
 from mongoengine import connect, Document, StringField, DictField, ListField, DateTimeField, IntField,FloatField, BooleanField
@@ -93,6 +92,7 @@ class ApprovelModel(BaseModel):
         self.modified_date = datetime.datetime.now()
         return super(ApprovelModel, self).save(*args, **kwargs)
 
+
 class ConditionPreparationModel(BaseModel):
     unique_id = StringField(required=True, primary_key=True)
     conditionId = StringField()
@@ -151,3 +151,8 @@ class ApprovalForAllModel(BaseModel):
 class URIModel(BaseModel):
     value = StringField()
     id = IntField()
+
+class PositionSplitModel(BaseModel):
+    stakeholder = StringField()
+
+    pass

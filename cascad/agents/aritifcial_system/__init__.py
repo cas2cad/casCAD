@@ -12,19 +12,19 @@ class TokenType(Enum):
     no_token = 'no_token'
 
 
-# class PredictMarket(object):
-#     def __init__(self) -> None:
-#         super().__init__()
-#         self.proposals = []
+class PredictMarket(object):
+    def __init__(self) -> None:
+        super().__init__()
+        self.proposals = []
 
-#     def buy(self, agent):
-#         pass
+    def buy(self, agent):
+        pass
 
-#     def sell(self, agent):
-#         pass
+    def sell(self, agent):
+        pass
 
-#     def observe(self, agent):
-#         pass
+    def observe(self, agent):
+        pass
 
 
 # class UniswapFPMM:

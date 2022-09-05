@@ -12,27 +12,6 @@ from cascad.aritificial_world import World as Experiment
 from cascad.models.kb import Entity, Property
 from cascad.utils.constant import *
 
-
-"""
-Mesa Time Module
-================
-Objects for handling the time component of a model. In particular, this module
-contains Schedulers, which handle agent activation. A Scheduler is an object
-which controls when agents are called upon to act, and when.
-The activation order can have a serious impact on model behavior, so it's
-important to specify it explicitly. Example simple activation regimes include
-activating all agents in the same order every step, shuffling the activation
-order every time, activating each agent *on average* once per step, and more.
-Key concepts:
-    Step: Many models advance in 'steps'. A step may involve the activation of
-    all agents, or a random (or selected) subset of them. Each agent in turn
-    may have their own step() method.
-    Time: Some models may simulate a continuous 'clock' instead of discrete
-    steps. However, by default, the Time is equal to the number of steps the
-    model has taken.
-"""
-
-
 # mypy
 
 
@@ -196,23 +175,23 @@ class StagedActivation(BaseScheduler):
 
         self.steps += 1
 
-# class RandomActivation(BaseScheduler):
-#     """A scheduler which activates each agent once per step, in random order,
-#     with the order reshuffled every step.
+class RandomActivation(BaseScheduler):
+    """A scheduler which activates each agent once per step, in random order,
+    with the order reshuffled every step.
 
-#     This is equivalent to the NetLogo 'ask agents...' and is generally the
-#     default behavior for an ABM.
+    This is equivalent to the NetLogo 'ask agents...' and is generally the
+    default behavior for an ABM.
 
-#     Assumes that all agents have a step(model) method.
+    Assumes that all agents have a step(model) method.
 
-#     """
+    """
 
-#     def step(self) -> None:
-#         """Executes the step of all agents, one at a time, in
-#         random order.
+    def step(self) -> None:
+        """Executes the step of all agents, one at a time, in
+        random order.
 
-#         """
-#         for agent in self.agent_buffer(shuffled=True):
-#             agent.step()
-#         self.steps += 1
-        # self.time += 1
+        """
+        for agent in self.agent_buffer(shuffled=True):
+            agent.step()
+        self.steps += 1
+        self.time += 1

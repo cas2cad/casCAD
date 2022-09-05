@@ -1,3 +1,9 @@
-mongoengine
-flask
-rdflib
+dash==1.20.0
+Flask==2.0.1
+Markdown==3.3.4
+rdflib==5.0.0
+rdflib-neo4j==0.0.1b1
+tqdm==4.59.0
+mongoengine==0.24.2
+pathy==0.4.0
+numpy==1.19.5

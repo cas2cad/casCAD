@@ -1,0 +1,250 @@
+"filename", "language", "Python", "pip requirements", "Makefile", "Solidity", "Markdown", "YAML", "Django HTML", "JavaScript", "CSS", "Less", "SVG", "PHP", "Django txt", "JSON", "CoffeeScript", "comment", "blank", "total"
+"f:\workhome\python\cascadv2\Makefile", "Makefile", 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 7
+"f:\workhome\python\cascadv2\README.md", "Markdown", 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 49
+"f:\workhome\python\cascadv2\cascad\__init__.py", "Python", 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 14
+"f:\workhome\python\cascadv2\cascad\agents\__init__.py", "Python", 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 6, 37
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\__init__.py", "Python", 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 230, 54, 301
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\chain.py", "Python", 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 9, 39
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\contracts\__init__.py", "Python", 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\contracts\pm\MarketMaker.py", "Python", 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 38
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\contracts\pm\__init__.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\contracts\token\ConditionalTokens.py", "Python", 78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 99
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\contracts\token\ERC1155.py", "Python", 85, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 19, 109
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\contracts\token\ERC20.py", "Python", 88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 19, 111
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\contracts\utils\CTHelpers.py", "Python", 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 44
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\contracts\utils\__init__.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\contracts\utils\special.py", "Python", 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 26
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\evmsim.py", "Python", 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 6
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\pm\__init__.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\pm\fpmm.py", "Python", 37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 10, 49
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\pm\lmsr.py", "Python", 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\pm\lmsr\__init__.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\pm\uniwap.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\votes\__init__.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"f:\workhome\python\cascadv2\cascad\agents\aritifcial_system\votes\relateivemajority.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"f:\workhome\python\cascadv2\cascad\agents\artificial_participant\__init__.py", "Python", 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 5, 30
+"f:\workhome\python\cascadv2\cascad\analyze\__init__.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"f:\workhome\python\cascadv2\cascad\app.py", "Python", 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 6
+"f:\workhome\python\cascadv2\cascad\aritificial_world\__init__.py", "Python", 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 16, 80
+"f:\workhome\python\cascadv2\cascad\aritificial_world\experiment.py", "Python", 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 14, 65
+"f:\workhome\python\cascadv2\cascad\aritificial_world\scheduler.py", "Python", 90, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 79, 29, 198
+"f:\workhome\python\cascadv2\cascad\aritificial_world\timeline.py", "Python", 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 10
+"f:\workhome\python\cascadv2\cascad\cascadcli.py", "Python", 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 38
+"f:\workhome\python\cascadv2\cascad\experiment\MBM\__init__.py", "Python", 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 14
+"f:\workhome\python\cascadv2\cascad\experiment\__init__.py", "Python", 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 14, 65
+"f:\workhome\python\cascadv2\cascad\experiment\cdec.py", "Python", 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 3, 12
+"f:\workhome\python\cascadv2\cascad\experiment\parallel.py", "Python", 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 14
+"f:\workhome\python\cascadv2\cascad\experiment\pargov\Omen.py", "Python", 304, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 66, 400
+"f:\workhome\python\cascadv2\cascad\experiment\pargov\__init__.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"f:\workhome\python\cascadv2\cascad\experiment\pargov\agent.py", "Python", 162, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 57, 247
+"f:\workhome\python\cascadv2\cascad\experiment\pargov\constant.py", "Python", 103, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 17, 131
+"f:\workhome\python\cascadv2\cascad\experiment\pargov\exp.py", "Python", 188, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 53, 261
+"f:\workhome\python\cascadv2\cascad\experiment\pargov\fpmm.py", "Python", 213, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 34, 53, 300
+"f:\workhome\python\cascadv2\cascad\experiment\pargov\gnosystem.py", "Python", 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 28, 134
+"f:\workhome\python\cascadv2\cascad\experiment\pargov\pargov_main.py", "Python", 177, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 38, 50, 265
+"f:\workhome\python\cascadv2\cascad\experiment\token_sender\__init__.py", "Python", 66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 14, 82
+"f:\workhome\python\cascadv2\cascad\experiment\token_sender\agents.py", "Python", 46, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 55
+"f:\workhome\python\cascadv2\cascad\models\__init__.py", "Python", 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 8
+"f:\workhome\python\cascadv2\cascad\models\datamodel.py", "Python", 119, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 35, 158
+"f:\workhome\python\cascadv2\cascad\models\kb.py", "Python", 87, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 27, 139
+"f:\workhome\python\cascadv2\cascad\models\neo4jbase.py", "Python", 53, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 67, 22, 142
+"f:\workhome\python\cascadv2\cascad\server\__init__.py", "Python", 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 24
+"f:\workhome\python\cascadv2\cascad\server\config.py", "Python", 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 30
+"f:\workhome\python\cascadv2\cascad\server\routes\__init__.py", "Python", 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5
+"f:\workhome\python\cascadv2\cascad\server\routes\home.py", "Python", 106, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 123
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\Chart.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1137, 0, 0, 0, 0, 0, 0, 0, 71, 219, 1427
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\Chart.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 39
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\LICENSE.md", "Markdown", 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 8
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\component.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 11
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\docs\Chart.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1150, 0, 0, 0, 0, 0, 0, 0, 71, 223, 1444
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\docs\index.html", "Django HTML", 0, 0, 0, 0, 0, 0, 605, 0, 0, 0, 0, 0, 0, 0, 0, 0, 162, 767
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\docs\prettify.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 0, 4, 6, 39
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\docs\prettify.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 0, 0, 1, 29
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\docs\prettify.less", "Less", 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 4, 3, 33
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\docs\styles.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 247, 0, 0, 0, 0, 0, 0, 16, 1, 264
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\docs\styles.less", "Less", 0, 0, 0, 0, 0, 0, 0, 0, 0, 171, 0, 0, 0, 0, 0, 0, 14, 185
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\readme.md", "Markdown", 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 18
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\samples\bar.html", "Django HTML", 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 40
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\samples\doughnut.html", "Django HTML", 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 47
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\samples\line.html", "Django HTML", 0, 0, 0, 0, 0, 0, 37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 44
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\samples\pie.html", "Django HTML", 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 39
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\samples\polarArea.html", "Django HTML", 0, 0, 0, 0, 0, 0, 42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 45
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\samples\radar.html", "Django HTML", 0, 0, 0, 0, 0, 0, 37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 44
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\samples\sixup.html", "Django HTML", 0, 0, 0, 0, 0, 0, 146, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 156
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\site\assets\Chart.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1150, 0, 0, 0, 0, 0, 0, 0, 71, 223, 1444
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\site\assets\effects.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 266, 0, 0, 0, 0, 0, 0, 0, 22, 32, 320
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\site\assets\excanvas.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1084, 0, 0, 0, 0, 0, 0, 0, 147, 185, 1416
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\site\index.html", "Django HTML", 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 142
+"f:\workhome\python\cascadv2\cascad\server\static\assets\chart-master\site\styles.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 205, 0, 0, 0, 0, 0, 0, 0, 1, 206
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\GPL-LICENSE.txt", "Django txt", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 236, 0, 0, 0, 43, 279
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\MIT-LICENSE.txt", "Django txt", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 4, 21
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\changelog.txt", "Django txt", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 298, 0, 0, 0, 25, 323
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\demos\agenda-views.html", "Django HTML", 0, 0, 0, 0, 0, 0, 87, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 96
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\demos\basic-views.html", "Django HTML", 0, 0, 0, 0, 0, 0, 87, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 96
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\demos\cupertino\theme.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 231, 0, 0, 0, 0, 0, 0, 53, 22, 306
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\demos\default.html", "Django HTML", 0, 0, 0, 0, 0, 0, 82, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 91
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\demos\external-dragging.html", "Django HTML", 0, 0, 0, 0, 0, 0, 122, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 155
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\demos\gcal.html", "Django HTML", 0, 0, 0, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 65
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\demos\json-events.php", "PHP", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 7, 26
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\demos\json.html", "Django HTML", 0, 0, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 62
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\demos\selectable.html", "Django HTML", 0, 0, 0, 0, 0, 0, 104, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 113
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\demos\theme.html", "Django HTML", 0, 0, 0, 0, 0, 0, 89, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 98
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\fullcalendar\bootstrap-fullcalendar.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 435, 0, 0, 0, 0, 0, 0, 50, 154, 639
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\fullcalendar\fullcalendar.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 418, 0, 0, 0, 0, 0, 0, 50, 151, 619
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\fullcalendar\fullcalendar.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 4016, 0, 0, 0, 0, 0, 0, 0, 267, 937, 5220
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\fullcalendar\fullcalendar.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 98, 0, 0, 0, 0, 0, 0, 0, 16, 1, 115
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\fullcalendar\fullcalendar.print.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 18, 14, 62
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\fullcalendar\gcal.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 84, 0, 0, 0, 0, 0, 0, 0, 11, 18, 113
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\jquery\jquery-1.8.1.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"f:\workhome\python\cascadv2\cascad\server\static\assets\fullcalendar\jquery\jquery-ui-1.8.23.custom.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 16, 0, 21
+"f:\workhome\python\cascadv2\cascad\server\static\assets\jquery-easy-pie-chart\Makefile", "Makefile", 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 12
+"f:\workhome\python\cascadv2\cascad\server\static\assets\jquery-easy-pie-chart\Readme.md", "Markdown", 0, 0, 0, 0, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 115
+"f:\workhome\python\cascadv2\cascad\server\static\assets\jquery-easy-pie-chart\examples\excanvas.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 655, 0, 0, 0, 0, 0, 0, 0, 130, 140, 925
+"f:\workhome\python\cascadv2\cascad\server\static\assets\jquery-easy-pie-chart\examples\index.html", "Django HTML", 0, 0, 0, 0, 0, 0, 83, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 90
+"f:\workhome\python\cascadv2\cascad\server\static\assets\jquery-easy-pie-chart\examples\style.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 119, 0, 0, 0, 0, 0, 0, 0, 13, 132
+"f:\workhome\python\cascadv2\cascad\server\static\assets\jquery-easy-pie-chart\jquery.easy-pie-chart.coffee", "CoffeeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 127, 5, 40, 172
+"f:\workhome\python\cascadv2\cascad\server\static\assets\jquery-easy-pie-chart\jquery.easy-pie-chart.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 2, 11
+"f:\workhome\python\cascadv2\cascad\server\static\assets\jquery-easy-pie-chart\jquery.easy-pie-chart.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 164, 0, 0, 0, 0, 0, 0, 0, 16, 6, 186
+"f:\workhome\python\cascadv2\cascad\server\static\assets\jquery-knob\README.md", "Markdown", 0, 0, 0, 0, 93, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 125
+"f:\workhome\python\cascadv2\cascad\server\static\assets\jquery-knob\index.html", "Django HTML", 0, 0, 0, 0, 0, 0, 265, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 275
+"f:\workhome\python\cascadv2\cascad\server\static\assets\jquery-knob\js\jquery.knob.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 479, 0, 0, 0, 0, 0, 0, 0, 57, 116, 652
+"f:\workhome\python\cascadv2\cascad\server\static\css\bootstrap-theme.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 5774, 0, 0, 0, 0, 0, 0, 72, 62, 5908
+"f:\workhome\python\cascadv2\cascad\server\static\css\bootstrap.min.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 8, 0, 9
+"f:\workhome\python\cascadv2\cascad\server\static\css\elegant-icons-style.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1144, 0, 0, 0, 0, 0, 0, 7, 9, 1160
+"f:\workhome\python\cascadv2\cascad\server\static\css\font-awesome.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1557, 0, 0, 0, 0, 0, 0, 9, 1, 1567
+"f:\workhome\python\cascadv2\cascad\server\static\css\font-awesome.min.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 3, 0, 4
+"f:\workhome\python\cascadv2\cascad\server\static\css\footable.bootstrap.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 326, 0, 0, 0, 0, 0, 0, 8, 8, 342
+"f:\workhome\python\cascadv2\cascad\server\static\css\footable.bootstrap.min.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"f:\workhome\python\cascadv2\cascad\server\static\css\fullcalendar.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 418, 0, 0, 0, 0, 0, 0, 44, 151, 613
+"f:\workhome\python\cascadv2\cascad\server\static\css\jquery-jvectormap-1.2.2.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 35, 0, 0, 0, 0, 0, 0, 0, 3, 38
+"f:\workhome\python\cascadv2\cascad\server\static\css\jquery-ui-1.10.4.min.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 5, 1, 7
+"f:\workhome\python\cascadv2\cascad\server\static\css\line-icons.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 96, 0, 0, 0, 0, 0, 0, 1, 7, 104
+"f:\workhome\python\cascadv2\cascad\server\static\css\owl.carousel.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 55, 0, 0, 0, 0, 0, 0, 9, 5, 69
+"f:\workhome\python\cascadv2\cascad\server\static\css\style-responsive.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 239, 0, 0, 0, 0, 0, 0, 12, 76, 327
+"f:\workhome\python\cascadv2\cascad\server\static\css\style.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 4206, 0, 0, 0, 0, 0, 0, 110, 625, 4941
+"f:\workhome\python\cascadv2\cascad\server\static\css\tagcloud.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 35, 0, 0, 0, 0, 0, 0, 7, 0, 42
+"f:\workhome\python\cascadv2\cascad\server\static\css\tree_style.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 61, 0, 0, 0, 0, 0, 0, 0, 0, 61
+"f:\workhome\python\cascadv2\cascad\server\static\css\widgets.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 299, 0, 0, 0, 0, 0, 0, 21, 78, 398
+"f:\workhome\python\cascadv2\cascad\server\static\css\xcharts.min.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"f:\workhome\python\cascadv2\cascad\server\static\fonts\ElegantIcons.svg", "SVG", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1832, 0, 0, 0, 0, 0, 0, 1832
+"f:\workhome\python\cascadv2\cascad\server\static\fonts\fontawesome-webfont.svg", "SVG", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 504, 0, 0, 0, 0, 0, 0, 504
+"f:\workhome\python\cascadv2\cascad\server\static\fonts\glyphicons-halflings-regular.svg", "SVG", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 228, 0, 0, 0, 0, 0, 0, 228
+"f:\workhome\python\cascadv2\cascad\server\static\js\add.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 56, 0, 0, 0, 0, 0, 0, 0, 18, 16, 90
+"f:\workhome\python\cascadv2\cascad\server\static\js\additional-methods.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"f:\workhome\python\cascadv2\cascad\server\static\js\bootstrap-switch.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 7, 54, 252
+"f:\workhome\python\cascadv2\cascad\server\static\js\bootstrap-wysiwyg-custom.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 0, 0, 0, 0, 0, 8, 1, 40
+"f:\workhome\python\cascadv2\cascad\server\static\js\bootstrap-wysiwyg.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 195, 0, 0, 0, 0, 0, 0, 0, 3, 3, 201
+"f:\workhome\python\cascadv2\cascad\server\static\js\bootstrap.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1186, 0, 0, 0, 0, 0, 0, 0, 318, 496, 2000
+"f:\workhome\python\cascadv2\cascad\server\static\js\bootstrap.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 5, 0, 6
+"f:\workhome\python\cascadv2\cascad\server\static\js\calendar-custom.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 82, 0, 0, 0, 0, 0, 0, 0, 15, 18, 115
+"f:\workhome\python\cascadv2\cascad\server\static\js\chartjs-custom.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 123, 0, 0, 0, 0, 0, 0, 0, 0, 9, 132
+"f:\workhome\python\cascadv2\cascad\server\static\js\charts-flot.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 409, 0, 0, 0, 0, 0, 0, 0, 16, 68, 493
+"f:\workhome\python\cascadv2\cascad\server\static\js\charts-other.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 81, 0, 0, 0, 0, 0, 0, 0, 9, 23, 113
+"f:\workhome\python\cascadv2\cascad\server\static\js\charts-xcharts.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 365, 0, 0, 0, 0, 0, 0, 0, 0, 27, 392
+"f:\workhome\python\cascadv2\cascad\server\static\js\charts.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 68, 0, 0, 0, 0, 0, 0, 0, 3, 17, 88
+"f:\workhome\python\cascadv2\cascad\server\static\js\dynamic-table.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 89, 0, 0, 0, 0, 0, 0, 0, 3, 12, 104
+"f:\workhome\python\cascadv2\cascad\server\static\js\easy-pie-chart.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 0, 0, 0, 1, 4, 38
+"f:\workhome\python\cascadv2\cascad\server\static\js\echarts.common.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 16, 0, 29
+"f:\workhome\python\cascadv2\cascad\server\static\js\echarts.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 47515, 0, 0, 0, 0, 0, 0, 0, 14819, 12480, 74814
+"f:\workhome\python\cascadv2\cascad\server\static\js\excanvas.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"f:\workhome\python\cascadv2\cascad\server\static\js\footable.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 3403, 0, 0, 0, 0, 0, 0, 0, 3577, 391, 7371
+"f:\workhome\python\cascadv2\cascad\server\static\js\footable.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 7, 0, 10
+"f:\workhome\python\cascadv2\cascad\server\static\js\form-component.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 151, 0, 0, 0, 0, 0, 0, 0, 8, 31, 190
+"f:\workhome\python\cascadv2\cascad\server\static\js\form-validation-script.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 82, 0, 0, 0, 0, 0, 0, 0, 6, 7, 95
+"f:\workhome\python\cascadv2\cascad\server\static\js\fullcalendar.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"f:\workhome\python\cascadv2\cascad\server\static\js\fullcalendar.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 98, 0, 0, 0, 0, 0, 0, 0, 16, 1, 115
+"f:\workhome\python\cascadv2\cascad\server\static\js\ga.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 59, 0, 0, 0, 0, 0, 0, 0, 0, 1, 60
+"f:\workhome\python\cascadv2\cascad\server\static\js\gdp-data.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 185, 0, 0, 0, 0, 0, 0, 0, 0, 0, 185
+"f:\workhome\python\cascadv2\cascad\server\static\js\gritter.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 57, 0, 0, 0, 0, 0, 0, 0, 32, 25, 114
+"f:\workhome\python\cascadv2\cascad\server\static\js\html5shiv.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 3, 1, 9
+"f:\workhome\python\cascadv2\cascad\server\static\js\index.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 176, 0, 0, 0, 0, 0, 0, 0, 13, 23, 212
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery-1.8.3.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery-jvectormap-1.2.2.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 6, 0, 8
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery-jvectormap-world-mill-en.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery-ui-1.10.4.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 4, 1, 7
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery-ui-1.9.2.custom.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 4, 1, 6
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.autosize.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 6, 0, 7
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.customSelect.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 9, 0, 10
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.flot.pie.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.hotkeys.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 65, 0, 0, 0, 0, 0, 0, 0, 17, 18, 100
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 3, 0, 6
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.localscroll.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 8, 0, 9
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 4
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.nicescroll.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 113, 0, 0, 0, 0, 0, 0, 0, 0, 1, 114
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.placeholder.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.rateit.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.scrollTo.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 6, 1, 8
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.slimscroll.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 7, 0, 16
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.smartWizard.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 410, 0, 0, 0, 0, 0, 0, 0, 30, 41, 481
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.sparkline-11.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 2402, 0, 0, 0, 0, 0, 0, 0, 344, 256, 3002
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.sparkline.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 2446, 0, 0, 0, 0, 0, 0, 0, 351, 261, 3058
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.stepy.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 244, 0, 0, 0, 0, 0, 0, 0, 33, 67, 344
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.tagsinput.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 277, 0, 0, 0, 0, 0, 0, 0, 26, 53, 356
+"f:\workhome\python\cascadv2\cascad\server\static\js\jquery.validate.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2
+"f:\workhome\python\cascadv2\cascad\server\static\js\lte-ie7 2.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 385, 0, 0, 0, 0, 0, 0, 0, 1, 1, 387
+"f:\workhome\python\cascadv2\cascad\server\static\js\lte-ie7.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 385, 0, 0, 0, 0, 0, 0, 0, 1, 1, 387
+"f:\workhome\python\cascadv2\cascad\server\static\js\morris-script 2.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 93, 0, 0, 0, 0, 0, 0, 0, 4, 14, 111
+"f:\workhome\python\cascadv2\cascad\server\static\js\morris-script.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 93, 0, 0, 0, 0, 0, 0, 0, 4, 14, 111
+"f:\workhome\python\cascadv2\cascad\server\static\js\morris.min 2.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"f:\workhome\python\cascadv2\cascad\server\static\js\morris.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"f:\workhome\python\cascadv2\cascad\server\static\js\owl.carousel 2.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 939, 0, 0, 0, 0, 0, 0, 0, 13, 163, 1115
+"f:\workhome\python\cascadv2\cascad\server\static\js\owl.carousel.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 939, 0, 0, 0, 0, 0, 0, 0, 13, 163, 1115
+"f:\workhome\python\cascadv2\cascad\server\static\js\popper.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 4, 0, 5
+"f:\workhome\python\cascadv2\cascad\server\static\js\scripts 2.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 74, 0, 0, 0, 0, 0, 0, 0, 9, 10, 93
+"f:\workhome\python\cascadv2\cascad\server\static\js\scripts.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 74, 0, 0, 0, 0, 0, 0, 0, 9, 10, 93
+"f:\workhome\python\cascadv2\cascad\server\static\js\sliders 2.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 87, 0, 0, 0, 0, 0, 0, 0, 9, 15, 111
+"f:\workhome\python\cascadv2\cascad\server\static\js\sliders.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 87, 0, 0, 0, 0, 0, 0, 0, 9, 15, 111
+"f:\workhome\python\cascadv2\cascad\server\static\js\sparkline-chart 2.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 88, 0, 0, 0, 0, 0, 0, 0, 6, 16, 110
+"f:\workhome\python\cascadv2\cascad\server\static\js\sparkline-chart.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 88, 0, 0, 0, 0, 0, 0, 0, 6, 16, 110
+"f:\workhome\python\cascadv2\cascad\server\static\js\sparklines 2.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 1, 5
+"f:\workhome\python\cascadv2\cascad\server\static\js\sparklines.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 1, 5
+"f:\workhome\python\cascadv2\cascad\server\static\js\tagcloud.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 5, 0, 6
+"f:\workhome\python\cascadv2\cascad\server\static\js\testjs.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"f:\workhome\python\cascadv2\cascad\server\static\js\tree_control.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14
+"f:\workhome\python\cascadv2\cascad\server\static\js\xcharts.min 2.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 4, 0, 5
+"f:\workhome\python\cascadv2\cascad\server\static\js\xcharts.min.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 4, 0, 5
+"f:\workhome\python\cascadv2\cascad\server\templates\agent.html", "Django HTML", 0, 0, 0, 0, 0, 0, 56, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 69
+"f:\workhome\python\cascadv2\cascad\server\templates\back.html", "Django HTML", 0, 0, 0, 0, 0, 0, 67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 76
+"f:\workhome\python\cascadv2\cascad\server\templates\bart.html", "Django HTML", 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 56
+"f:\workhome\python\cascadv2\cascad\server\templates\base.html", "Django HTML", 0, 0, 0, 0, 0, 0, 179, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 207
+"f:\workhome\python\cascadv2\cascad\server\templates\compute_experiment.html", "Django HTML", 0, 0, 0, 0, 0, 0, 55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 63
+"f:\workhome\python\cascadv2\cascad\server\templates\config.html", "Django HTML", 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 55
+"f:\workhome\python\cascadv2\cascad\server\templates\config_0.html", "Django HTML", 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 56
+"f:\workhome\python\cascadv2\cascad\server\templates\config_1.html", "Django HTML", 0, 0, 0, 0, 0, 0, 51, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 66
+"f:\workhome\python\cascadv2\cascad\server\templates\config_2.html", "Django HTML", 0, 0, 0, 0, 0, 0, 67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 93
+"f:\workhome\python\cascadv2\cascad\server\templates\config_3.html", "Django HTML", 0, 0, 0, 0, 0, 0, 82, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 107
+"f:\workhome\python\cascadv2\cascad\server\templates\dynamic.html", "Django HTML", 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 84
+"f:\workhome\python\cascadv2\cascad\server\templates\index.html", "Django HTML", 0, 0, 0, 0, 0, 0, 37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 44
+"f:\workhome\python\cascadv2\cascad\server\templates\signup.html", "Django HTML", 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15
+"f:\workhome\python\cascadv2\cascad\settings.py", "Python", 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 18
+"f:\workhome\python\cascadv2\cascad\utils\__init__.py", "Python", 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5
+"f:\workhome\python\cascadv2\cascad\utils\constant.py", "Python", 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 25
+"f:\workhome\python\cascadv2\cascad\utils\myfuncs.py", "Python", 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 7, 60
+"f:\workhome\python\cascadv2\database\docker-compose.yml", "YAML", 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 3, 46
+"f:\workhome\python\cascadv2\requirements.txt", "pip requirements", 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9
+"f:\workhome\python\cascadv2\setup.py", "Python", 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 18
+"f:\workhome\python\cascadv2\smartcontracts\contracts\AppDependencies.sol", "Solidity", 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 12
+"f:\workhome\python\cascadv2\smartcontracts\contracts\CTHelpers.sol", "Solidity", 0, 0, 0, 375, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 46, 12, 433
+"f:\workhome\python\cascadv2\smartcontracts\contracts\ConditionalTokens.sol", "Solidity", 0, 0, 0, 214, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 51, 29, 294
+"f:\workhome\python\cascadv2\smartcontracts\contracts\Create2CloneFactory.sol", "Solidity", 0, 0, 0, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 41
+"f:\workhome\python\cascadv2\smartcontracts\contracts\ERC1155\ERC1155.sol", "Solidity", 0, 0, 0, 156, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 80, 35, 271
+"f:\workhome\python\cascadv2\smartcontracts\contracts\ERC1155\ERC1155TokenReceiver.sol", "Solidity", 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 14
+"f:\workhome\python\cascadv2\smartcontracts\contracts\ERC1155\IERC1155.sol", "Solidity", 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 12, 30
+"f:\workhome\python\cascadv2\smartcontracts\contracts\ERC1155\IERC1155TokenReceiver.sol", "Solidity", 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 5, 57
+"f:\workhome\python\cascadv2\smartcontracts\contracts\ERC1155\README.md", "Markdown", 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 13
+"f:\workhome\python\cascadv2\smartcontracts\contracts\ERC20.sol", "Solidity", 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 154, 27, 253
+"f:\workhome\python\cascadv2\smartcontracts\contracts\LMSRMarketMaker.sol", "Solidity", 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 37, 14, 115
+"f:\workhome\python\cascadv2\smartcontracts\contracts\LMSRMarketMakerFactory.sol", "Solidity", 0, 0, 0, 105, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 25, 133
+"f:\workhome\python\cascadv2\smartcontracts\contracts\MarketMaker.sol", "Solidity", 0, 0, 0, 223, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 53, 33, 309
+"f:\workhome\python\cascadv2\smartcontracts\contracts\Migrations.sol", "Solidity", 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 24
+"f:\workhome\python\cascadv2\smartcontracts\contracts\Rayaki.sol", "Solidity", 0, 0, 0, 146, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 386, 67, 599
+"f:\workhome\python\cascadv2\smartcontracts\contracts\RayakiID.sol", "Solidity", 0, 0, 0, 149, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 98, 49, 296
+"f:\workhome\python\cascadv2\smartcontracts\contracts\Whitelist.sol", "Solidity", 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 7, 28
+"f:\workhome\python\cascadv2\smartcontracts\contracts\util-contracts\ConstructedCloneFactory.sol", "Solidity", 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 39
+"f:\workhome\python\cascadv2\smartcontracts\contracts\util-contracts\SignedSafeMath.sol", "Solidity", 0, 0, 0, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 98, 14, 151
+"f:\workhome\python\cascadv2\tests\test_agent.py", "Python", 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8
+"f:\workhome\python\cascadv2\tests\test_kb.py", "Python", 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 7, 61
+"f:\workhome\python\cascadv2\tests\test_model.py", "Python", 72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 102
+"f:\workhome\python\cascadv2\tests\test_neo4j.py", "Python", 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 33
+"f:\workhome\python\cascadv2\tests\test_world.py", "Python", 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 18
+"Total", "-", 2731, 9, 14, 1694, 264, 24, 2922, 74361, 15973, 197, 2564, 19, 551, 11, 127, 23086, 20241, 144788
