@@ -9,7 +9,7 @@ from collections import OrderedDict
 # from aletheia.scenario_generator.experiment import Experiment
 from cascad.agents.artificial_participant import Participant as Agent
 from cascad.aritificial_world import World as Experiment
-from cascad.models.kb import Entity, Property
+# from cascad.models.kb import Entity, Property
 from cascad.utils.constant import *
 
 # mypy
@@ -34,8 +34,9 @@ class BaseScheduler:
         self.steps = 0
         self.time: TimeT = 0
         self._agents: Dict[int, Agent] = OrderedDict()
-        self.entity = Entity(unique_id, self._name)
-        self.entity['name'] = self._name
+
+        # self.entity = Entity(unique_id, self._name)
+        # self.entity['name'] = self._name
 
     def add(self, agent: Agent) -> None:
         """Add an Agent object to the schedule.
@@ -52,7 +53,7 @@ class BaseScheduler:
             )
 
         self._agents[agent.unique_id] = agent
-        self.entity[has_agent] = agent.entity
+        # self.entity[has_agent] = agent.entity
 
     def remove(self, agent: Agent) -> None:
         """Remove all instances of a given agent from the schedule.
@@ -60,7 +61,7 @@ class BaseScheduler:
             agent: An agent object.
         """
         del self._agents[agent.unique_id]
-        self.entity.delete(has_agent, agent.entity)
+        # self.entity.delete(has_agent, agent.entity)
 
     def step(self) -> None:
         """Execute the step of all the agents, one at a time."""

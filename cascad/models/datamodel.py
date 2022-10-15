@@ -156,3 +156,18 @@ class PositionSplitModel(BaseModel):
     stakeholder = StringField()
 
     pass
+
+class ExperimentResultModel(Document):
+    # unique_id = StringField(required=True, primary_key=True)
+    experiment_id = StringField()
+    day = IntField()
+    result = ListField()
+    code = ListField()
+
+class GeneResultModel(Document):
+    # unique_id = StringField(required=True, primary_key=True)
+    geneId = StringField()
+    result = ListField()
+    code = ListField()
+    loss = ListField()
+    iter = IntField()

@@ -39,7 +39,7 @@ class MintRedeemModel(object):
         self.uniswap = uniwap
         self.threshold = threshold
 
-    def mint(self, agent: Agent, token: str, amount: float = -1, duet_amount: float = -1):
+    def mint(self, agent, token: str, amount: float = -1, duet_amount: float = -1):
         """
         mint function
         if duet_amount is provided, compute the amount of target token minted
@@ -114,7 +114,7 @@ class MintRedeemModel(object):
             amount = amount * price
             return amount
 
-    def redeem(self, agent: Agent, token: str, amount: float):
+    def redeem(self, agent, token: str, amount: float):
         '''
         redeem function
         '''

@@ -762,7 +762,7 @@ class Plan:
             if agent.states[start_token] <= amount:
                 amount = agent.states[start_token]
 
-            print('choose {}'.format(final_plan['name']))
+            # print('choose {}'.format(final_plan['name']))
             if 'parameter' in final_plan.keys():
                 return final_plan['action'](final_plan['parameter'])
 

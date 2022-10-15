@@ -62,7 +62,7 @@ class PredictMarket(object):
 #             self.prop = 0
 #         self.prop = self.states[POOL][self.token1] / self.states[POOL][self.token2]
 #         if self.prop == 0:
-#             print('debug')
+#             # print('debug')
 #         expect_a2 = amount1 / self.prop
 #         if expect_a2 > amount2:
 #             amount1 = amount2 * self.prop
@@ -95,7 +95,7 @@ class PredictMarket(object):
 #             lp_states[LP] = lp_amount_origin + lp_amount
 
 #             if lp_states[POOL][self.token2] == 0:
-#                 print('zero')
+#                 # print('zero')
 #             self.prop = lp_states[POOL][self.token1] / \
 #                 lp_states[POOL][self.token2]
 
@@ -161,9 +161,9 @@ class PredictMarket(object):
 #                 agent.states[origin_token] -= cost
 #                 ### for verify the mius number
 #                 if agent.states[origin_token] < 0:
-#                     print('something is wrong')
-#                     print(cost)
-#                     print(agent.states[origin_token])
+#                     # print('something is wrong')
+#                     # print(cost)
+#                     # print(agent.states[origin_token])
 #                     agent.states[origin_token] = 0
 
 #                 agent.states[self.token2] += val
@@ -188,9 +188,9 @@ class PredictMarket(object):
 #                 val = self.calc_price(0, true_amount)
 #                 agent.states[origin_token] -= cost
 #                 if agent.states[origin_token] < 0:
-#                     print('something to do')
-#                     print(cost)
-#                     print(agent.states[origin_token])
+#                     # print('something to do')
+#                     # print(cost)
+#                     # print(agent.states[origin_token])
 #                     agent.states[origin_token] =0
 
 #                 agent.states[self.token1] += val
