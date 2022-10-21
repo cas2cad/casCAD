@@ -22,11 +22,11 @@ def evaluate_one(data):
     init_coin_num =data[6]
 
     low_liquity = False
-    price_change = False
-    if env == 1:
-        low_liquity = True
-    elif env == 2:
-        price_change=True
+    price_change = True
+    # if env == 1:
+    #     low_liquity = True
+    # elif env == 2:
+    #     price_change=True
 
     init_coin_num = init_coin_num * 250
 
@@ -94,7 +94,9 @@ class Gene:
 class GA:
     def __init__(self, **parameter):
         self.popsize = parameter['popsize']
-        self.bound = [[0, 3]]  + [[0,1]]*4  + [[1,1]]+ [[1, 4]]
+        # self.bound = [[2, 3]]  + [[0,1]]*4  + [[1,1]]+ [[1, 4]]
+        self.bound = [[2, 3]]  + [[0,1]]*5 + [[1, 4]]
+
         self.bound_type = [int] + [float] * 5 + [int]
         self.one_pool = Pool(10)
         self.init_the_group()
@@ -106,7 +108,7 @@ class GA:
         for i in range(self.popsize):
             # env = np.random.randint(0, 3)
             # risk_coeff_up, risk_coeff_down, belief_weight_up, belief_weight_down, info_reliable_up, info_reliable_down, infor_agent_per = np.random.uniform(0, 1, size=7)
-            agent_ratio = np.random.uniform(0, 1, size=4)
+            agent_ratio = np.random.uniform(0, 1, size=5)
             # if beta_a > beta_b:
             #     beta_a, beta_b  = beta_b, beta_a
             # if risk_coeff_up < risk_coeff_down:
@@ -125,7 +127,9 @@ class GA:
             # geneinfo = [beta_a, beta_b, risk_coeff_up, risk_coeff_down, belief_weight_up, belief_weight_down, info_reliable_up, info_reliable_down, infor_agent_per , info_gen_lam]
 
 
-            gene_info = [env] + list(agent_ratio) + [1] + [init_coin_num]
+            # gene_info = [env] + list(agent_ratio) + [1] + [init_coin_num]
+            gene_info = [env] + list(agent_ratio) + [init_coin_num]
+
             gene = Gene(data= gene_info)
             # loss1, loss2 = gene.evaluate()
             genes.append(gene)

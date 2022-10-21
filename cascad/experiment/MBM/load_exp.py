@@ -3,21 +3,21 @@ import sys
 from plotly.subplots import make_subplots
 import plotly.graph_objs as go 
 sys.path.append('.')
+from cascad.settings import BASE_DIR
 
-from aletheia.agents.desires import Trader
 from sqlite3.dbapi2 import Row
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from dash_html_components.Br import Br
-from dash_html_components.Hr import Hr
-from aletheia import analyze_model
 import dash_bootstrap_components as dbc
 import plotly.express as px
-from aletheia.agents.desires import SellFounder, HoldFounder, DuetHold, DuetHoldAndFarm, DuetHoldAndStake, DAssetHold, DAssetHoldAndFarm, ShortFarmArbitrage, Spread, BullishDAsset, BullishDUET, BearrishDUET, BearrishDAsset
+# from aletheia.agents.desires import SellFounder, HoldFounder, DuetHold, DuetHoldAndFarm, DuetHoldAndStake, DAssetHold, DAssetHoldAndFarm, ShortFarmArbitrage, Spread, BullishDAsset, BullishDUET, BearrishDUET, BearrishDAsset
+from cascad.experiment.MBM.desires import SellFounder, HoldFounder, DuetHold, DuetHoldAndFarm, DuetHoldAndStake, DAssetHold, DAssetHoldAndFarm, ShortFarmArbitrage, Spread, BullishDAsset, BullishDUET, BearrishDUET, BearrishDAsset
 
-from aletheia.utils.constant import BTC
-from aletheia.settings import BASE_DIR
+from cascad.experiment.MBM.constant import BTC
+
+# from aletheia.utils.constant import BTC
+# from aletheia.settings import BASE_DIR
 import os
 
 
@@ -995,6 +995,8 @@ def create_detail_fig(name):
 def get_index_page():
     # names = ['duetdatas-high-gas-final_6', 'duetdatas-normal-final_6', 'duetdatas-pries-change-final_6', 'duetdatas-low-liquidity-final_6', 'duetdatas-no-reward-final_6']
     names = [SellFounder.name, HoldFounder.name, DuetHold.name,DuetHoldAndFarm.name, DuetHoldAndStake.name, DAssetHold.name, DAssetHoldAndFarm.name, ShortFarmArbitrage.name, Spread.name, BullishDAsset.name, BullishDUET.name, BearrishDAsset.name, BearrishDUET.name]
+
+    names = ["Iter {}".format(name) for name in range(730)]
     links = []
     for name in names:
         item = {

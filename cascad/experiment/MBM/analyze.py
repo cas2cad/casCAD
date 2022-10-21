@@ -1,8 +1,11 @@
-from aletheia.utils.constant import BTC
-from aletheia.settings import BASE_DIR
-from aletheia.utils.votality import Votality
-from aletheia.artificial_system.oracle import Oracle
-from aletheia.scenario_generator.timeline import TimeLine
+# from aletheia.settings import BASE_DIR
+from cascad.models.datamodel import GeneResultModel, GeneResultModelRound2
+from cascad.settings import BASE_DIR
+# from aletheia.artificial_system.oracle import Oracle
+# from aletheia.scenario_generator.timeline import TimeLine
+from cascad.experiment.MBM.constant import BTC
+from cascad.aritificial_world.timeline import TimeLine
+from cascad.experiment.MBM.oracle import Oracle
 import os
 
 
@@ -24,7 +27,7 @@ _timeline = TimeLine()
 _oracle = Oracle(_timeline)
 
 class Analyze:
-    def __init__(self, path_name, price_change = False):
+    def __init__(self, path_name="", price_change = True):
         # self.path = os.path.join(BASE_DIR, 'resources', 'duetdatas-c')
         self.path = os.path.join(BASE_DIR, 'resources', path_name)
         self.actual_prices = _oracle.prices
@@ -50,45 +53,48 @@ class Analyze:
 
         pass
 
-    def create_multiline(self, columns=['zusd_total_minted', 'znas_total_minted', 'zbtc_total_minted'], x='day'):
+    def create_multiline(self, columns=['DBMT Holder', 'DAsset Holder', 'DAsset Bulliser', 'DAsset Bearisher', 'Short-Term Speculator'], x='iter'):
         df = self.system_df
         result = {
             x: [],
             'value': [],
             'color': []
         }
-        price_dict = {
-            'zusd_total_minted': 'zusd_price',
-            'znas_total_minted': 'znas_price',
-            'zbtc_total_minted': 'zbtc_price',
-            'zusd_total_burned': 'zusd_price',
-            'znas_total_burned': 'znas_price',
-            'zbtc_total_burned': 'zbtc_price'
 
-            }
-        pre_price = {}
-        pre_one = {}
-        for column in columns:
-            pre_one[column] = 0
-            pre_price[column] = 0
+        df_group = df[['iter'] + columns].groupby(by='iter', as_index=False).mean()
+        # df_merge = pd.merge(df_group, df, on=['iter',  'RL and GL'], how='left')
+        # df_group = df[['iter'] + columns].groupby(by='iter', as_index=False).first()
+        for index, row in df_group.iterrows():
+            for column in columns:
+                result[x].append(row['iter'])
+                result['value'].append(row[column])
+                result['color'].append(column)
+        return pd.DataFrame(data = result)
 
-        for index, row in df.iterrows():
+
+    def create_multiline_RL_GL(self, columns=['GL', 'RL'], x='iter'):
+        df = self.system_df
+        df['RL and GL'] = df['RL'] + df['GL']
+        df_group = df[['iter', 'RL', 'GL', 'RL and GL']].groupby(by='iter', as_index=False).mean()
+        # df_merge = pd.merge(df_group, df, on=['iter',  'RL and GL'], how='left')
+        # df_merge['RL'] = df_merge['RL_x']
+        # df_merge['GL'] = df_merge['GL_x']
+        result = {
+            x: [],
+            'value': [],
+            'color': []
+        }
+
+        for index, row in df_group.iterrows():
             # print(row['c1'], row['c2'])
             for column in columns:
-                price_column = price_dict[column]
-                # price_column_minus = price_column.iloc[1:] - price_column.iloc[:-1]
-                # if index >= 0:
-                adds =  row[column] - pre_one[column]
-                adds = adds * row[price_column]
                 
-                result[x].append(row['day'])
+                result[x].append(row['iter'])
                 # result['value'].append(row[column] * row[price_column])
-                result['value'].append(pre_price[column] + adds)
-                result['color'].append(column.replace('z', 'd'))
-                pre_one[column] = row[column]
-                pre_price[column] = pre_price[column] + adds
-
+                result['value'].append(row[column])
+                result['color'].append(column)
         return pd.DataFrame(data = result)
+        # return df_merge[['iter', 'RL', 'GL']]
 
     def set_price_changing(self):
         # days = [100, 300, 500]
@@ -108,69 +114,35 @@ class Analyze:
         _oracle.set_price(BTC, medium_low, 0.75)
 
 
-    def load_data(self, num=25):
-        # all_files = glob.glob(str(self.path) + "/reslt_system*.csv")
-        # agent_files = glob.glob(self.path + "/result_[0-9][0-9]*.csv") + glob.glob(self.path + "/result_[0-9]*.csv")
-        # agent_files = list(set(agent_files))
+    def get_code_iter(self, iter):
+        code_data_df = self.system_df[self.system_df['iter'] == iter]
+        code_data_df = code_data_df[['DBMT Holder', 'DAsset Holder', 'DAsset Bulliser', 'DAsset Bearisher', 'Short-Term Speculator', 'Init Tokens']]
+        code_data_df['Init Tokens'] = code_data_df['Init Tokens'] * 250
+        return code_data_df.round(2)
 
-        agent_li= []
-        for i in range(num):
-            file_name = 'result_{}_.csv'.format(i)
-        # for file_name in agent_files:
-            file_name = os.path.join(self.path, file_name)
-            if not os.path.exists(file_name):
-                continue
-            df = pd.read_csv(file_name)
-            agent_li.append(df)
+
+    def load_data(self, num=25, round=1):
+        exp_data = []
+        if round == 2:
+            resultModel = GeneResultModelRound2
+        else:
+            resultModel = GeneResultModel
+            
+        for item in resultModel.objects:
+            row = [str(item.pk), item.iter] + item.code + item.loss
+            exp_data.append(row)
         
-        agent_df = pd.concat(agent_li, axis=0, ignore_index=True)
-        agent_df['benefit'] = agent_df['asset_value'] - agent_df['invest']
-        self.whole_agent_df = agent_df
+        columns = ['id', 'iter', 'scenorio', 'DBMT Holder', 'DAsset Holder', 'DAsset Bulliser', 'DAsset Bearisher', 'Short-Term Speculator', 'Init Tokens', 'loss1', 'loss2', 'loss3', 'loss4', 'loss5']
 
-        self.agent_df = self.whole_agent_df.drop_duplicates(subset=['day', 'agent_id'], keep='last')
+        system_df = pd.DataFrame(exp_data, columns=columns)
 
-        # system_files = glob.glob(self.path + "/result_system*.csv")
-        system_li = []
-        for i in range(num):
-        # for file_name in system_files:
-            file_name = 'result_system_{}_.csv'.format(i)
-            file_name = os.path.join(self.path, file_name)
-            if not os.path.exists(file_name):
-                continue
-            df = pd.read_csv(file_name)
-            system_li.append(df)
+        system_df['GL'] = system_df[['loss1', 'loss2', 'loss3', 'loss4', 'loss5']].mean(axis=1)
+        system_df['RL'] = system_df[['loss1', 'loss2', 'loss3', 'loss4', 'loss5']].std(axis=1)
 
-        # all_files = glob.glob(self.path + "/reslt_system*.csv")
-        # for file_name in all_files:
-        #     df = pd.read_csv(file_name)
-        #     system_li.append(df)
-
-        system_df = pd.concat(system_li, axis=0, ignore_index=True)
-
-        system_df['usdt_asset_price'] = self.actual_prices['USDT']
-        system_df['btc_asset_price'] = self.actual_prices['BTC']
-        system_df['nas_asset_price'] = self.actual_prices['NAS']
-
-        system_df['dusd_diff'] = system_df['zusd_price'] - system_df['usdt_asset_price']
-        system_df['dbtc_diff'] = system_df['zbtc_price'] - system_df['btc_asset_price']
-        system_df['dnas_diff'] = system_df['znas_price'] - system_df['nas_asset_price']
-
-        system_df['dusd_price'] = system_df['zusd_price']
-        system_df['dbtc_price'] = system_df['zbtc_price']
-        system_df['dnas_price'] = system_df['znas_price']
-
-        system_df['dusd_volume'] = system_df['zusd_volume']
-        system_df['dbtc_volume'] = system_df['zbtc_volume']
-        system_df['dnas_volume'] = system_df['znas_volume']
-
-
-    
-        # for column in ['usdt_origin_price', 'btc_origin_price', 'nas_origin_price']:
-        #     system_df[column]
-
+        # print(system_df)
         self.system_df = system_df
 
-        self.to_csv_file()
+        # self.to_csv_file()
 
     def to_csv_file(self):
         agent_file = 'all_agent.csv'
@@ -288,4 +260,7 @@ class Analyze:
 
 if __name__ == '__main__':
     analyze = Analyze()
-    analyze.load_data()
+    analyze.load_data(round=2)
+    result = analyze.create_multiline()
+    analyze.get_code_iter(3)
+    analyze.create_multiline()

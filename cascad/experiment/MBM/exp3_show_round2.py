@@ -19,7 +19,7 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 
 analyze = analyze.Analyze('exp3')
-analyze.load_data()
+analyze.load_data(round=2)
 GL_RL_DF = analyze.create_multiline_RL_GL()
 GL_RL_fig = px.line(GL_RL_DF, x='iter', y='value', color='color', title='RL and GL Changed Over Iter')
 
@@ -28,7 +28,7 @@ agent_fig = px.line(agent_df, x='iter', y='value', color='color', title='Agent P
 
 TOPN_DF = analyze.get_code_iter(99)
 
-def generate_table(dataframe, max_rows=40):
+def generate_table(dataframe, max_rows=10):
     return dbc.Table([
         html.Thead(
             html.Tr([html.Th(col) for col in dataframe.columns])

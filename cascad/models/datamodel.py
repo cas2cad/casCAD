@@ -171,3 +171,11 @@ class GeneResultModel(Document):
     code = ListField()
     loss = ListField()
     iter = IntField()
+
+class GeneResultModelRound2(Document):
+    # unique_id = StringField(required=True, primary_key=True)
+    geneId = StringField()
+    result = ListField()
+    code = ListField()
+    loss = ListField()
+    iter = IntField()

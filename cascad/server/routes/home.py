@@ -112,10 +112,10 @@ def token_data(max_step, world_id):
     c = token_discribute(max_step, world_id)
     return c.dump_options_with_quotes()
 
-@home_bp.route("/barChart")
-def get_bar_chart():
-    c = bar_base()
-    return c.dump_options_with_quotes()
+# @home_bp.route("/barChart")
+# def get_bar_chart():
+#     c = bar_base()
+#     return c.dump_options_with_quotes()
 
 @home_bp.route("/bar")
 def get_bar_index():
