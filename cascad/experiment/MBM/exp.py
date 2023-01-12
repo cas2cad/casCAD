@@ -1,4 +1,5 @@
 # from pargov.pargov_main import  ParExperiment
+from cascad.aritificial_world import experiment
 from cascad.experiment.MBM import MBMExperiment
 from cascad.models.datamodel  import GeneResultModel
 from operator import  itemgetter
@@ -48,6 +49,7 @@ class Gene:
         self.size = len(data['data'])
         # self.one_pool = pool
         self.unique_id = self.next_id()
+        self.experiment_id =data['experiment_id']
 
     def evaluate(self, iter):
         _data = self.data
@@ -84,7 +86,7 @@ class Gene:
         loss_average = get_average(loss)
         loss_variance = get_standard_deviation(loss)
 
-        GeneResultModel(geneId = self.unique_id, result= history_data, code=self.data, loss=loss,iter=iter ).save()
+        GeneResultModel(geneId = self.unique_id, experiment_id = self.experiment_id, result= history_data, code=self.data, loss=loss,iter=iter ).save()
         return  loss_average, loss_variance, 1
 
     def next_id(self) -> str:
@@ -100,7 +102,10 @@ class GA:
         self.bound_type = [int] + [float] * 5 + [int]
         self.one_pool = Pool(10)
         self.init_the_group()
+        self.unique_id =  self.next_id()
 
+    def next_id(self) -> str:
+        return uuid.uuid4().hex   
 
     def init_the_group(self, experiment=0):
         pop = []
@@ -130,7 +135,7 @@ class GA:
             # gene_info = [env] + list(agent_ratio) + [1] + [init_coin_num]
             gene_info = [env] + list(agent_ratio) + [init_coin_num]
 
-            gene = Gene(data= gene_info)
+            gene = Gene(data= gene_info, experiment_id = self.unique_id)
             # loss1, loss2 = gene.evaluate()
             genes.append(gene)
 
@@ -180,8 +185,8 @@ class GA:
             pos1 = random.randrange(1, dim)
             pos2 = random.randrange(1, dim)
 
-        newoff1 = Gene(data=[])  # offspring1 produced by cross operation
-        newoff2 = Gene(data=[])  # offspring2 produced by cross operation
+        newoff1 = Gene(data=[], experiment_id = self.unique_id)  # offspring1 produced by cross operation
+        newoff2 = Gene(data=[], experiment_id = self.unique_id)  # offspring2 produced by cross operation
         temp1 = []
         temp2 = []
         for i in range(dim):

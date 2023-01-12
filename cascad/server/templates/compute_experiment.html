@@ -53,7 +53,9 @@
             </section>
 
             <section>
-                <a href="/config_experiment" class="btn btn-primary">create</a>
+                <a href="/config_experiment" class="btn btn-primary">create</a> {% if experiments|length >= 5 %}
+                <a href="/compute_experiment/{{page + 1}}" class="btn btn-primary">Next Page</a> {% endif %} {% if page >= 1 %}
+                <a href="/compute_experiment/{{page - 1}}" class="btn btn-primary">Prev Page</a> {% endif %}
             </section>
         </div>
 

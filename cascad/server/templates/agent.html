@@ -17,10 +17,10 @@
 
                 {% for agent in agents %}
                 <div class="col-md-3 border border-secondary">
-                    <div class="card bg-primary text-white text-center" style="width: 18rem; height:18rem;border: solid 1px green;">
+                    <div class="card bg-primary text-white text-center" style="width: 18rem; height:10rem;border: solid 1px green;">
                         <div class="card-body">
                             <h5 class="card-title"> <b>{{agent.agent_name}} </b></h5>
-                            <p class="card-text">{{agent.agent_describe}}</p>
+                            <!-- <p class="card-text">{{agent.agent_describe}}</p> -->
                             <a href="/agents/{{agent.agent_name}}" class="card-link">Agent Details</a>
                         </div>
                     </div>

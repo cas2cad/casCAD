@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block mainbody %}
+
+<div class="container">
+    <section class="panel panel-default">
+        <header class="panel-heading">
+            实验结果
+        </header>
+
+        <div id="bar" style="width:1000px; height:600px;"></div>
+    </section>
+</div>
+
+{% endblock %} {% block echartScript %}
+<meta id="my-data" data-name="{{world_id}}" data-other="{{max_step}}">
+
+<script>
+    var chart = echarts.init(document.getElementById('bar'), 'white', {
+        renderer: 'canvas'
+    });
+
+    var world_id = $('#my-data').data("name");
+    var max_step = $('#my-data').data("other");
+
+    $(
+        function() {
+            fetchData(chart);
+            setInterval(fetchData, 2000);
+        }
+    );
+
+    function fetchData() {
+        $.ajax({
+            type: "GET",
+            url: "http://127.0.0.1:5000/tokens/" + max_step + "/" + world_id,
+            dataType: 'json',
+            success: function(result) {
+                chart.setOption(result);
+            }
+        });
+    }
+</script>
+
+{% endblock %}

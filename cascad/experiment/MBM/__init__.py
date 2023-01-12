@@ -110,7 +110,7 @@ class MBMExperiment(Experiment):
     def __init__(self, file_path = '', start_reward_day=0, trade_limit = 500, price_change=False, no_reward=False, low_liquity=False, high_gas=False, different_ratio=[0.1, 0.2, 0.3, 0.3,0.1], init_token = 5000, code=[]):
         self.timeline = TimeLine()
         self.duet_system = MBMSystem(self.timeline)
-
+        self._name = "MBM Experiment"
         self.max_step = 730 # run 2 years 730 day
         # self.max_step = 180
 
@@ -163,6 +163,12 @@ class MBMExperiment(Experiment):
         self.trade_limit = trade_limit
         # self.pbar = tqdm(total=self.max_step)
         self.init_token = init_token
+
+        ComputeExperimentModel(
+            unique_id=self.unique_id,
+            experiment_name = self._name,
+            status = "Start"
+        ).save()
 
     def next_id(self) -> str:
         return uuid.uuid4().hex   
@@ -599,6 +605,14 @@ class DataCollector:
     def step(self):
         # print(self.get_record())
         pass
+
+    def run(self):
+        while self.running:
+            self.step()
+
+        model = ComputeExperimentModel.objects.get(unique_id=self.unique_id)
+        model.status = "end"
+        model.save()
 
 def do_experiment():
     experiment = MBMExperiment()

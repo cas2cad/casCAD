@@ -53,7 +53,7 @@ class Analyze:
 
         pass
 
-    def create_multiline(self, columns=['DBMT Holder', 'DAsset Holder', 'DAsset Bulliser', 'DAsset Bearisher', 'Short-Term Speculator'], x='iter'):
+    def create_multiline(self, columns=['SBMT Holder', 'SAsset Holder', 'SAsset Bulliser', 'SAsset Bearisher', 'Short-Term Speculator'], x='iter'):
         df = self.system_df
         result = {
             x: [],
@@ -62,7 +62,7 @@ class Analyze:
         }
 
         df_group = df[['iter'] + columns].groupby(by='iter', as_index=False).mean()
-        # df_merge = pd.merge(df_group, df, on=['iter',  'RL and GL'], how='left')
+        # df_merge = pd.merge(df_group, df, on=['iter',  'RL and MEL'], how='left')
         # df_group = df[['iter'] + columns].groupby(by='iter', as_index=False).first()
         for index, row in df_group.iterrows():
             for column in columns:
@@ -72,13 +72,13 @@ class Analyze:
         return pd.DataFrame(data = result)
 
 
-    def create_multiline_RL_GL(self, columns=['GL', 'RL'], x='iter'):
+    def create_multiline_RL_GL(self, columns=['MEL', 'RL'], x='iter'):
         df = self.system_df
-        df['RL and GL'] = df['RL'] + df['GL']
-        df_group = df[['iter', 'RL', 'GL', 'RL and GL']].groupby(by='iter', as_index=False).mean()
-        # df_merge = pd.merge(df_group, df, on=['iter',  'RL and GL'], how='left')
+        df['RL and MEL'] = df['RL'] + df['MEL']
+        df_group = df[['iter', 'RL', 'MEL', 'RL and MEL']].groupby(by='iter', as_index=False).mean()
+        # df_merge = pd.merge(df_group, df, on=['iter',  'RL and MEL'], how='left')
         # df_merge['RL'] = df_merge['RL_x']
-        # df_merge['GL'] = df_merge['GL_x']
+        # df_merge['MEL'] = df_merge['MEL_x']
         result = {
             x: [],
             'value': [],
@@ -94,7 +94,7 @@ class Analyze:
                 result['value'].append(row[column])
                 result['color'].append(column)
         return pd.DataFrame(data = result)
-        # return df_merge[['iter', 'RL', 'GL']]
+        # return df_merge[['iter', 'RL', 'MEL']]
 
     def set_price_changing(self):
         # days = [100, 300, 500]
@@ -116,7 +116,7 @@ class Analyze:
 
     def get_code_iter(self, iter):
         code_data_df = self.system_df[self.system_df['iter'] == iter]
-        code_data_df = code_data_df[['DBMT Holder', 'DAsset Holder', 'DAsset Bulliser', 'DAsset Bearisher', 'Short-Term Speculator', 'Init Tokens']]
+        code_data_df = code_data_df[['SBMT Holder', 'SAsset Holder', 'SAsset Bulliser', 'SAsset Bearisher', 'Short-Term Speculator', 'Init Tokens']]
         code_data_df['Init Tokens'] = code_data_df['Init Tokens'] * 250
         return code_data_df.round(2)
 
@@ -132,11 +132,11 @@ class Analyze:
             row = [str(item.pk), item.iter] + item.code + item.loss
             exp_data.append(row)
         
-        columns = ['id', 'iter', 'scenorio', 'DBMT Holder', 'DAsset Holder', 'DAsset Bulliser', 'DAsset Bearisher', 'Short-Term Speculator', 'Init Tokens', 'loss1', 'loss2', 'loss3', 'loss4', 'loss5']
+        columns = ['id', 'iter', 'scenorio', 'SBMT Holder', 'SAsset Holder', 'SAsset Bulliser', 'SAsset Bearisher', 'Short-Term Speculator', 'Init Tokens', 'loss1', 'loss2', 'loss3', 'loss4', 'loss5']
 
         system_df = pd.DataFrame(exp_data, columns=columns)
 
-        system_df['GL'] = system_df[['loss1', 'loss2', 'loss3', 'loss4', 'loss5']].mean(axis=1)
+        system_df['MEL'] = system_df[['loss1', 'loss2', 'loss3', 'loss4', 'loss5']].mean(axis=1)
         system_df['RL'] = system_df[['loss1', 'loss2', 'loss3', 'loss4', 'loss5']].std(axis=1)
 
         # print(system_df)

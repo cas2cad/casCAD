@@ -32,7 +32,7 @@
                 <select name="experiment_type" class="form-control" id="sel1">
 
                     {% for experiment_type in experiment_types %}
-                    <option> {{experiment_type.experiment_type}} </option>
+                    <option value="{{experiment_type.experiment_type}}"> {{experiment_type.experiment_name}} </option>
 
                     {% endfor %}
                 </select>

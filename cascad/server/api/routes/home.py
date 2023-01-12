@@ -4,8 +4,9 @@ from pyecharts import options as opts
 from pyecharts.charts import Bar, Scatter
 from jinja2 import Markup
 from cascad.experiment.token_sender import ERC20TokenWorld
+from cascad.experiment.MBM import MBMExperiment
 
-home_bp = Blueprint('home_bp', __name__)
+home_bp = Blueprint('home_bp', __name__ , template_folder='templates', static_folder='static')
 
 def token_discribute(max_step, world_id) ->  Scatter:
     agent_models = AgentModel.objects(step=max_step, world_id=world_id)
@@ -25,19 +26,28 @@ def index():
     return render_template('index.html')
 
 @home_bp.route("/compute_experiment", methods=['GET', 'POST'])
-def compute():
-    experiments = ComputeExperimentModel.objects.all()
-
-    return render_template('compute_experiment.html', experiments=experiments)
+@home_bp.route("/compute_experiment/<page>", methods=['GET', 'POST'])
+def compute(page=0):
+    page = int(page)
+    if page == 0:
+        experiments = ComputeExperimentModel.objects.limit(5)
+    else:
+        experiments = ComputeExperimentModel.objects.skip(page * 5).limit(5)
+    return render_template('compute_experiment.html', experiments=experiments, page=page)
 
 @home_bp.route("/agents", methods=['GET', 'POST'])
-def agent():
-    if request.method == 'POST':
-        agent_type = request.form['agent_type']
+@home_bp.route("/agents/<agent_name>", methods=['GET', 'POST'])
+def agent(agent_name=None):
+    # if request.method == 'POST':
+    #     agent_type = request.form['agent_type']
 
-    else:
+    # else:
+    if not agent_name:
         agents = AgentTypeModel.objects.all()
         return render_template('agent.html', agents=agents)
+    else:
+        agent = AgentTypeModel.objects(agent_name=agent_name).first()
+        return render_template('agent_detail.html', agent=agent)
 
 
 @home_bp.route("/config_experiment", methods=["GET", "POST"])
@@ -88,6 +98,12 @@ def config_experiment(step=0):
                 world_id = erc20_token_world.unique_id
                 max_step = int(params_result['IterNumbers']) - 1
                 erc20_token_world.run()
+            elif experiment_type == '_mbm_experiment':
+                experiment = MBMExperiment()
+                while experiment.running:
+                    experiment.step() 
+            elif experiment_type == '_pargov_experiment':
+                pass
             else:
                 pass
             return render_template(
@@ -120,3 +136,9 @@ def token_data(max_step, world_id):
 @home_bp.route("/bar")
 def get_bar_index():
     return render_template("bart.html")
+
+@home_bp.route("/view_result/<experiment_id>")
+def view_result(experiment_id):
+    
+
+    pass

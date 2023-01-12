@@ -167,6 +167,7 @@ class ExperimentResultModel(Document):
 class GeneResultModel(Document):
     # unique_id = StringField(required=True, primary_key=True)
     geneId = StringField()
+    experiment_id = StringField()
     result = ListField()
     code = ListField()
     loss = ListField()

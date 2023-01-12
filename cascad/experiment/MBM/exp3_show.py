@@ -21,10 +21,10 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 analyze = analyze.Analyze('exp3')
 analyze.load_data()
 GL_RL_DF = analyze.create_multiline_RL_GL()
-GL_RL_fig = px.line(GL_RL_DF, x='iter', y='value', color='color', title='RL and GL Changed Over Iter')
+GL_RL_fig = px.line(GL_RL_DF, x='iter', y='value', color='color', title='RL and MEL Value Over Iter')
 
 agent_df = analyze.create_multiline()
-agent_fig = px.line(agent_df, x='iter', y='value', color='color', title='Agent Proportion Changed Over Iter')
+agent_fig = px.line(agent_df, x='iter', y='value', color='color', title='Agent Proportion Over Iter')
 
 TOPN_DF = analyze.get_code_iter(99)
 
@@ -46,12 +46,12 @@ app.layout = html.Div(
     children=[
         dcc.Location(id='url', refresh=False),
 
-        dbc.Row(dbc.Col(html.H1(children='Analyze of MBM Experiment',
+        dbc.Row(dbc.Col(html.H1(children='Analysis of MBM Experiment',
                                 style={'textAlign': 'center'}))),
 
-        dbc.Row(dbc.Col(html.Div(children='''
-            Analyze and visualize the result of casCAD2.
-    ''', style={'textAlign': 'center'}))),
+    #     dbc.Row(dbc.Col(html.Div(children='''
+    #         Analyze and visualize the result of casCAD2.
+    # ''', style={'textAlign': 'center'}))),
 
         html.Hr(),
         dbc.Row(
@@ -73,7 +73,7 @@ app.layout = html.Div(
 
         html.Hr(),
         dbc.Row(html.Div(children='''
-           Code of Top 10 scenarios.
+           Code of Top 10 Largest Lost Scenarios.
     ''', style={'textAlign': 'center'})),
         dbc.Row(
             dbc.Col(
