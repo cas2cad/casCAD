@@ -1,6 +1,7 @@
 from flask import Flask
 from cascad.server.config import config
 from cascad.server.api import routes
+from cascad.server.api import dashboard
 from cascad.settings import BASE_DIR
 from flask_bootstrap import Bootstrap
 import os
@@ -22,6 +23,7 @@ def create_app(config_name='development'):
     # login_manager = flask_login.LoginManager()
     # login_manager.init_app(app)
 
-    routes.init_app(app)
+    app = routes.init_app(app)
+    app = dashboard.init_dashboard(app)
 
     return app

@@ -5,3 +5,4 @@ from .home import home_bp
 def init_app(app): 
     app.register_blueprint(home_bp)
     # app.register_blueprint(blockchain_bp, url_prefix='blockchain')
+    return app
