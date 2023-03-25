@@ -1,7 +1,7 @@
 # from pargov.pargov_main import  ParExperiment
 from cascad.aritificial_world import experiment
 from cascad.experiment.MBM import MBMExperiment
-from cascad.models.datamodel  import GeneResultModel
+from cascad.models.datamodel  import GeneResultModel, ComputeExperimentModel, ExperimentResultModel
 from operator import  itemgetter
 import random
 from cascad.settings import BASE_DIR
@@ -12,6 +12,7 @@ import os
 import csv
 from multiprocessing import  Pool
 import uuid
+import threading
 
 result_dir = os.path.join(BASE_DIR, 'resources', 'results')
 CXPB, MUTPB, NGEN, popsize = 0.8, 0.4, 100, 100 
@@ -93,19 +94,33 @@ class Gene:
         return uuid.uuid4().hex   
 
 
-class GA:
+class GA(threading.Thread):
     def __init__(self, **parameter):
+        threading.Thread.__init__(self)
+        self.unique_id =  self.next_id()
         self.popsize = parameter['popsize']
+        self.ngen = parameter['ngen']
         # self.bound = [[2, 3]]  + [[0,1]]*4  + [[1,1]]+ [[1, 4]]
         self.bound = [[2, 3]]  + [[0,1]]*5 + [[1, 4]]
+        self._name = "MBM Experiment"
 
         self.bound_type = [int] + [float] * 5 + [int]
-        self.one_pool = Pool(10)
-        self.init_the_group()
-        self.unique_id =  self.next_id()
+        ComputeExperimentModel(
+            unique_id=self.unique_id,
+            experiment_name = self._name,
+            status = "Started"
+        ).save()
+
+
+        # self.one_pool = Pool(10)
+        # self.init_the_group()
+        self.stop = False
 
     def next_id(self) -> str:
         return uuid.uuid4().hex   
+
+    def stop_ga(self):
+        self.stop = True
 
     def init_the_group(self, experiment=0):
         pop = []
@@ -140,11 +155,15 @@ class GA:
             genes.append(gene)
 
         # pool = Pool(10)
-        result = self.one_pool.map(evaluate_gene, zip(genes, [-1] * len(genes)))
-
-        for item, gene in tqdm.tqdm(zip(result, genes)):
-            loss1, loss2, loss3 = item
+        # result = self.one_pool.map(evaluate_gene, zip(genes, [-1] * len(genes)))
+        for gene in genes:
+            loss1, loss2, loss3 = evaluate_gene((gene,-1))
             pop.append({'Gene': gene, 'fitness': loss1 + loss2, 'loss1' :loss1, 'loss2': loss2, 'loss3':loss3})
+
+
+        # for item, gene in tqdm.tqdm(zip(result, genes)):
+        #     loss1, loss2, loss3 = item
+        #     pop.append({'Gene': gene, 'fitness': loss1 + loss2, 'loss1' :loss1, 'loss2': loss2, 'loss3':loss3})
             
         self.pop = pop
         self.bestindividual = self.selectBest(self.pop)
@@ -217,6 +236,7 @@ class GA:
         return crossoff
 
     def ga_main(self):
+        self.init_the_group()
         popsize = self.popsize
 
         print("Start of evolution")
@@ -226,7 +246,11 @@ class GA:
         csv_writer.writerow(['gen', 'avgloss', 'maxloss', 'loss1', 'loss2', 'loss3', 'exp_id'])
 
         # Begin the evolution
-        for g in tqdm.tqdm(range(NGEN), colour='RED'):
+        for g in tqdm.tqdm(range(self.ngen), colour='RED'):
+
+            if self.stop:
+                average_fitness = -1
+                break
 
             print("############### Generation {} ###############".format(g))
 
@@ -273,11 +297,14 @@ class GA:
                 else:
                     nextoff.extend(offspring)
             if genes:
-                result = self.one_pool.map(evaluate_gene, zip(genes, [g] * len(genes)))
+                for gene in genes:
+                    loss1, loss2, loss3 = evaluate_gene((gene,g))
+                    nextoff.append({'Gene': gene, 'fitness': loss1 + loss2, 'loss1' :loss1, 'loss2': loss2, 'loss3':loss3})
 
-            for item,gene in tqdm.tqdm(zip(result, genes)):
-                loss1, loss2, loss3 = item
-                nextoff.append({'Gene': gene, 'fitness': loss1 + loss2, 'loss1' :loss1, 'loss2': loss2, 'loss3':loss3})
+                # result = self.one_pool.map(evaluate_gene, zip(genes, [g] * len(genes)))
+            # for item,gene in tqdm.tqdm(zip(result, genes)):
+                # loss1, loss2, loss3 = item
+                # nextoff.append({'Gene': gene, 'fitness': loss1 + loss2, 'loss1' :loss1, 'loss2': loss2, 'loss3':loss3})
 
             # The population is entirely replaced by the offspring
             self.pop = nextoff
@@ -295,6 +322,12 @@ class GA:
             print("  Max fitness of current pop: {}".format(max(fits)))
             average_fitness = sum(fits) / len(fits)
             csv_writer.writerow([g, average_fitness, max(fits)])
+            ExperimentResultModel(
+                day = g,
+                experiment_id = self.unique_id,
+                result= [average_fitness, max(fits)],
+                code = self.bestindividual['Gene'].data
+            ).save()
 
         print("------ End of (successful) evolution ------")
         # csv_writer.close()
@@ -306,6 +339,18 @@ class GA:
         self.save_last()
 
     def save_last(self):
+        # ComputeExperimentModel(
+        #     unique_id=self.unique_id,
+        #     experiment_name = self._name,
+        #     status = "Start"
+        # ).save()
+        model = ComputeExperimentModel.objects.get(unique_id=self.unique_id)
+        if self.stop:
+            model.status = "Stopped"
+        else:
+            model.status = "Ended"
+        model.save()
+
         popsize = self.pop
         print("Start of evolution")
         result_path = os.path.join(BASE_DIR, 'resources', 'results', 'exp2_last.csv')
@@ -316,39 +361,22 @@ class GA:
         for gene in popsize:
             csv_writer.writerow(gene['Gene'].data + [gene['fitness'], gene['loss1'] , gene['loss2'], gene['loss3'], gene['Gene'].unique_id])
 
+    def run(self):
+        print("Starting " + self.unique_id)
+        print('executed')
+        self.ga_main()
+        print("Exiting " + self.unique_id)
+        pass
 
-
-# class Exp1:
-#     def ex_main(self):
-#         result = []
-        
-#         for i in tqdm.tqdm(np.arange(0, 1, 0.05)):
-#             loss1, loss2, loss3 = self.evaluate(i)
-#             result.append([1- loss1, 1- loss2, 1 - loss3, i])
-
-#         file_path = os.path.join(result_dir, 'exp1.csv')
-#         with open(file_path, 'w', encoding='utf8', newline='') as f:
-#             write = csv.writer(f)
-#             for line in result:
-#                 write.writerow(line)
-
-
-#     def evaluate(self, per):
-#         result = []
-#         for i in range(100):
-#             parExperiment = ParExperiment(infor_agent_per=per)
-#             while parExperiment.running:
-#                 parExperiment.step()
-#             result.append(parExperiment.result[-1])
-        
-#         loss1 = [x[0] for x in result]
-#         loss2 = [x[1] for x in result]
-#         loss3 = [x[2] for x in result]
-#         return sum(loss1)/ len(loss1), sum(loss2)/len(loss2), sum(loss3)/len(loss3)
 
 if __name__ == '__main__':
     # exp1 = Exp1()
     # exp1.ex_main()
     # CXPB,
-    run = GA(popsize=10)
-    run.ga_main()
+    # run = GA(popsize=10)
+    # run.ga_main()
+    exp1 = GA(popsize=10, ngen = 100)
+    exp1.start()
+
+    # exp1.stop_ga()
+    exp1.join()

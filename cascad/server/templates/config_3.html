@@ -69,6 +69,21 @@
             <div id="bar" style="width:1000px; height:600px;"></div>
         </section>
 
+        <section class="panel panel-default">
+            <header class="panel-heading">
+                查看更多结果
+            </header>
+            <a href="/dashapp/exp1/{{world_id}}">
+                <button type="button">View</button>
+            </a>
+
+            <!-- <form action="/dashapp/exp1/{{world_id}}" method="get">
+                <button class="btn btn-primary" type="submit" value="Send Email" style="width: 100%;height:100%">
+                                            View
+                </button>
+            </form> -->
+        </section>
+
     </form>
 
 </div>
@@ -88,7 +103,7 @@
     $(
         function() {
             fetchData(chart);
-            setInterval(fetchData, 2000);
+            setInterval(fetchData, 3000);
         }
     );
 

@@ -1,8 +1,12 @@
-from pargov.agent import InforAgent as Agent
-# from aletheia.utils.constant import *
-from pargov.constant import *
-# from aletheia.artificial_system.uniswap.fpmm import UniswapFPMM
-from pargov.fpmm import UniswapFPMM
+# from pargov.agent import InforAgent as Agent
+# # from aletheia.utils.constant import *
+# from pargov.constant import *
+# # from aletheia.artificial_system.uniswap.fpmm import UniswapFPMM
+# from pargov.fpmm import UniswapFPMM
+
+from cascad.experiment.pargov.agent import InforAgent as Agent
+from cascad.experiment.pargov.constant import *
+from cascad.experiment.pargov.fpmm import UniswapFPMM
 import copy
 import math
 

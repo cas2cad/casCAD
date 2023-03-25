@@ -1,4 +1,5 @@
-from pargov.pargov_main import  ParExperiment
+# from pargov.pargov_main import  ParExperiment
+from cascad.experiment.pargov.pargov_main import ParExperiment
 from operator import  itemgetter
 import random
 # from aletheia.settings import BASE_DIR

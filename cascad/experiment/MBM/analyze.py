@@ -27,11 +27,12 @@ _timeline = TimeLine()
 _oracle = Oracle(_timeline)
 
 class Analyze:
-    def __init__(self, path_name="", price_change = True):
+    def __init__(self, _id, path_name="", price_change = True):
         # self.path = os.path.join(BASE_DIR, 'resources', 'duetdatas-c')
         self.path = os.path.join(BASE_DIR, 'resources', path_name)
         self.actual_prices = _oracle.prices
         self.price_change = price_change
+        self._id = _id
         if self.price_change == True:
             self.set_price_changing()
 
@@ -128,7 +129,7 @@ class Analyze:
         else:
             resultModel = GeneResultModel
             
-        for item in resultModel.objects:
+        for item in resultModel.objects(experiment_id=self._id).only('code', 'loss', 'iter'):
             row = [str(item.pk), item.iter] + item.code + item.loss
             exp_data.append(row)
         

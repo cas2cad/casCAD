@@ -1,0 +1,44 @@
+{
+    "data": {
+        "fpmmTransactions": [
+            {
+                "__typename": "FpmmTransaction",
+                "additionalSharesCost": null,
+                "collateralTokenAmount": "20000000000000000",
+                "creationTimestamp": "1606139236",
+                "fpmm": {
+                    "__typename": "FixedProductMarketMaker",
+                    "collateralToken": "0x6810e776880c02933d47db1b9fc05908e5386b96"
+                },
+                "fpmmType": "Trade",
+                "id": "0x1049459a541630687b4fa6c839249e3aa4da7dfd0x83d8113c378ad3b88c8adaa5bae5f76287b232990xa",
+                "sharesOrPoolTokenAmount": "38823224794036877",
+                "transactionHash": "0xd671381ba5cca38663eeff442b1e4f706bcd485ad6e082cf3f1f60c2bd6e997a",
+                "transactionType": "Buy",
+                "user": {
+                    "__typename": "Account",
+                    "id": "0x83d8113c378ad3b88c8adaa5bae5f76287b23299"
+                }
+            },
+            {
+                "__typename": "FpmmTransaction",
+                "additionalSharesCost": "0",
+                "collateralTokenAmount": "1000000000000000000",
+                "creationTimestamp": "1606138476",
+                "fpmm": {
+                    "__typename": "FixedProductMarketMaker",
+                    "collateralToken": "0x6810e776880c02933d47db1b9fc05908e5386b96"
+                },
+                "fpmmType": "Liquidity",
+                "id": "0x1049459a541630687b4fa6c839249e3aa4da7dfd0x89023deb1d9a9a62ff3a5ca8f23be8d87a5762200xe2",
+                "sharesOrPoolTokenAmount": "1000000000000000000",
+                "transactionHash": "0x32d290c01cc3300ef6a15da1b072c1ced89fe7f818afedeb80a67ee25fb272fb",
+                "transactionType": "Add",
+                "user": {
+                    "__typename": "Account",
+                    "id": "0x89023deb1d9a9a62ff3a5ca8f23be8d87a576220"
+                }
+            }
+        ]
+    }
+}

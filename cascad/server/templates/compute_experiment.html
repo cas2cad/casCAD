@@ -38,11 +38,17 @@
                                 <td>{{ experiment.modified_date }}</td>
                                 <td>{{ experiment.status }}</td>
                                 <td>
-                                    <form action="/dashapp/exp1" method="get">
+                                    <form action="/dashapp/exp1/{{experiment.unique_id}}" method="get">
                                         <button class="btn btn-primary" type="submit" value="Send Email" style="width: 100%;height:100%">
                                             View
                                             </button>
                                     </form>
+                                    <!-- <form action="/dashapp/exp1/{{experiment.unique_id}}" method="get">
+                                        <button class="btn btn-primary" type="submit" value="Send Email" style="width: 100%;height:100%">
+                                            Stop
+                                            </button>
+                                    </form>
+ -->
                                 </td>
                             </tr>
                             {% endfor %}

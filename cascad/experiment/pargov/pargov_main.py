@@ -7,6 +7,7 @@ from cascad.aritificial_world.timeline import TimeLine
 from cascad.aritificial_world.scheduler import BaseScheduler
 from cascad.settings import BASE_DIR
 from random import randint, random, choice, shuffle
+from cascad.experiment.pargov.constant import *
 # from aletheia.scenario_generator.scheduler import BaseScheduler
 import numpy as np
 import random
@@ -14,8 +15,10 @@ import os
 import csv
 import json
 
-from pargov.agent import InforAgent
-from pargov.gnosystem import  GNOSystem
+# from pargov.agent import InforAgent
+# from pargov.gnosystem import  GNOSystem
+from cascad.experiment.pargov.agent import InforAgent
+from cascad.experiment.pargov.gnosystem import GNOSystem
 
 base_path = os.path.join(BASE_DIR, 'resources', 'datasets')
 
@@ -110,10 +113,6 @@ class ParExperiment(Experiment):
             return 0
         infos = np.random.uniform(0, 0.5, n)
 
-        # if positive:
-        #     infos = np.random.uniform(0, 0.5, n)
-        # else:
-        #     infos = np.random.uniform(-0.5, 0, n)
         return float(sum(infos)/n)
 
     def new_agent(self):

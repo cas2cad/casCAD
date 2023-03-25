@@ -1,8 +1,10 @@
 # from aletheia.scenario_generator.timeline import TimeLine
-from cascad.experiment.pargov.timeline import  TimeLine
+# from cascad.experiment.pargov.timeline import  TimeLine
+from cascad.aritificial_world.timeline import TimeLine
 from numpy.lib.arraysetops import isin
 from cascad.experiment.pargov.constant import DUET, DUET_USDT, FARM, FRAMWITHDRAW, MINT1, NO_TOKEN, REDEEM, STAKE, STAKEWITHDRAW, SWAP1, VOTE_CONDITION, VOTE_YES, YES_TOKEN, ZBTC_ZUSD, ZNAS, ZNAS_ZUSD, ZUSD_USDT, USDT, GNO, DAI, VOTE_NO
-from pargov.Omen import  Omen
+# from pargov.Omen import  Omen
+from cascad.experiment.pargov.Omen import Omen
 
 class ArtificalSystem(object):
     pass

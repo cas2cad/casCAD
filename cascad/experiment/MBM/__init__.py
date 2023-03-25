@@ -164,11 +164,11 @@ class MBMExperiment(Experiment):
         # self.pbar = tqdm(total=self.max_step)
         self.init_token = init_token
 
-        ComputeExperimentModel(
-            unique_id=self.unique_id,
-            experiment_name = self._name,
-            status = "Start"
-        ).save()
+        # ComputeExperimentModel(
+        #     unique_id=self.unique_id,
+        #     experiment_name = self._name,
+        #     status = "Start"
+        # ).save()
 
     def next_id(self) -> str:
         return uuid.uuid4().hex   
@@ -606,18 +606,22 @@ class DataCollector:
         # print(self.get_record())
         pass
 
-    def run(self):
-        while self.running:
-            self.step()
+    # def run(self):
+    #     while self.running:
+    #         self.step()
 
-        model = ComputeExperimentModel.objects.get(unique_id=self.unique_id)
-        model.status = "end"
-        model.save()
+    #     model = ComputeExperimentModel.objects.get(unique_id=self.unique_id)
+    #     model.status = "end"
+    #     model.save()
 
 def do_experiment():
     experiment = MBMExperiment()
     while experiment.running:
         experiment.step()
+    # experiment.run()
+    # model = ComputeExperimentModel.objects.get(unique_id=experiment.unique_id)
+    # model.status = "end"
+    # model.save()
 
 if __name__ == '__main__':
 

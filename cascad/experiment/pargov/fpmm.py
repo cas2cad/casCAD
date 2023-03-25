@@ -1,8 +1,9 @@
 # from aletheia.agents.property import token_cost
-from pargov.constant import FEES, TRADES
+# from pargov.constant import FEES, TRADES
+from cascad.experiment.pargov.constant import FEES
 import math
 from enum import Enum
-from pargov.constant import *
+from cascad.experiment.pargov.constant import *
 from copy import deepcopy
 
 

@@ -1,23 +1,26 @@
 from flask import Blueprint, render_template, url_for, request
-from cascad.models.datamodel import AgentTypeModel, ComputeExperimentModel, ComputeExperimentTypeModel, AgentModel
+from cascad.models.datamodel import AgentTypeModel, ComputeExperimentModel, ComputeExperimentTypeModel, AgentModel,GeneResultModel,ExperimentResultModel
 from pyecharts import options as opts
 from pyecharts.charts import Bar, Scatter
 from jinja2 import Markup
 from cascad.experiment.token_sender import ERC20TokenWorld
-from cascad.experiment.MBM import MBMExperiment
+from cascad.experiment.MBM.exp import  GA as MBMExperiment
+from collections import defaultdict
 
 home_bp = Blueprint('home_bp', __name__ , template_folder='templates', static_folder='static')
 
 def token_discribute(max_step, world_id) ->  Scatter:
-    agent_models = AgentModel.objects(step=max_step, world_id=world_id)
+    # agent_models = AgentModel.objects(step=max_step, world_id=world_id)
+    generesult_models = ExperimentResultModel.objects(experiment_id = world_id)
     result = [
-            (str(agent_model.unique_id)[-4:], agent_model.state['token']) for agent_model in agent_models
+            (agent_model.day, agent_model.result[0]) for agent_model in generesult_models 
     ]
+
     c = (
         Scatter()
         .add_xaxis([x[0] for x in result])
-        .add_yaxis("代币数量", [x[1] for x in result])
-        .set_global_opts(title_opts=opts.TitleOpts(title="代币分布图"))
+        .add_yaxis("Loss", [x[1] for x in result])
+        .set_global_opts(title_opts=opts.TitleOpts(title="Avg Loss Over Time"))
     )
     return c
 
@@ -57,7 +60,7 @@ def config_experiment(step=0):
     if request.method == 'POST':
         experiment_type = request.form['experiment_type']
         if step == 1:
-            agent_types = AgentTypeModel.objects.all()
+            agent_types = AgentTypeModel.objects(corresponding_experiment = experiment_type)
             return render_template(
                 'config_1.html',
                 experiment_type = experiment_type,
@@ -99,9 +102,12 @@ def config_experiment(step=0):
                 max_step = int(params_result['IterNumbers']) - 1
                 erc20_token_world.run()
             elif experiment_type == '_mbm_experiment':
-                experiment = MBMExperiment()
-                while experiment.running:
-                    experiment.step() 
+                experiment = MBMExperiment(popsize = int(params_result['popsize']), ngen=int(params_result['ngen']))
+                # while experiment.running:
+                    # experiment.step() 
+                experiment.start()
+                world_id = experiment.unique_id
+                max_step = experiment.ngen
             elif experiment_type == '_pargov_experiment':
                 pass
             else:
@@ -122,6 +128,7 @@ def config_experiment(step=0):
         if step == 0:
             experiment_types = ComputeExperimentTypeModel.objects.all()
             return render_template('config_0.html', experiment_types=experiment_types)
+
 
 @home_bp.route("/tokens/<max_step>/<world_id>", methods=["GET", "POST"])
 def token_data(max_step, world_id):
