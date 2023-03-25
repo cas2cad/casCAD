@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, url_for, request
-from cascad.models.datamodel import AgentTypeModel, ComputeExperimentModel, ComputeExperimentTypeModel, AgentModel,GeneResultModel,ExperimentResultModel
+from cascad.models.datamodel import AgentTypeModel, ComputeExperimentModel, ComputeExperimentTypeModel, AgentModel,GeneResultModel,ExperimentResultModel, ComponentModel
 from pyecharts import options as opts
 from pyecharts.charts import Bar, Scatter
 from jinja2 import Markup
@@ -51,6 +51,21 @@ def agent(agent_name=None):
     else:
         agent = AgentTypeModel.objects(agent_name=agent_name).first()
         return render_template('agent_detail.html', agent=agent)
+
+
+@home_bp.route("/components", methods=['GET', 'POST'])
+@home_bp.route("/components/<component_name>", methods=['GET', 'POST'])
+def component(agent_name=None):
+    # if request.method == 'POST':
+    #     agent_type = request.form['agent_type']
+
+    # else:
+    if not agent_name:
+        components = ComponentModel.objects.all()
+        return render_template('components.html', compoents=components)
+    # else:
+    #     agent = ComponentModel.objects(agent_name=agent_name).first()
+    #     return render_template('agent_detail.html', agent=agent)
 
 
 @home_bp.route("/config_experiment", methods=["GET", "POST"])

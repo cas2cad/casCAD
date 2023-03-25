@@ -7,7 +7,7 @@ get nodes, get properties, add nodes, add properties
 """
 
 import rdflib
-from rdflib import Graph, Literal, RDF, URIRef
+from rdflib import Graph, Literal, RDF, URIRef, store
 from rdflib.namespace import FOAF, XSD
 from cascad.utils.myfuncs import Singleton
 from threading import  Lock
@@ -25,7 +25,10 @@ class Neo4j(metaclass=Singleton):
             }
         }
 
-        self.g = Graph(store='Neo4j')
+        # self.g = Graph(store='Neo4')
+        self.g = Graph(store='neo4j-cypher')
+        # g = Graph(store='neo4j-cypher')
+
         self.g.open(theconfig, create=False)
         self.base = base
 

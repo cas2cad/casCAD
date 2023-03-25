@@ -111,14 +111,16 @@ class MBMExperiment(Experiment):
         self.timeline = TimeLine()
         self.duet_system = MBMSystem(self.timeline)
         self._name = "MBM Experiment"
-        self.max_step = 730 # run 2 years 730 day
-        # self.max_step = 180
+        # self.max_step = 730 # run 2 years 730 day
+        self.max_step = 180
 
         self.scheduler = BaseScheduler(self, self.next_id())
         self.agent_uniq_id = -1
         self.unique_id = self.next_id()
         self.running = True
-        self.max_agent = 720
+        # self.max_agent = 720
+        self.max_agent = 100
+        self.init_agent = 20 # start up people numbers
 
         # for priace dramatically changing
         # self.price_change = price_change
@@ -441,7 +443,7 @@ class MBMExperiment(Experiment):
 
     def random_remove_agent(self):
         agent_index = list(range(len(self.scheduler.agents)))
-        agent_index = agent_index[100:]
+        agent_index = agent_index[self.init_agent:]
         index = choice(agent_index)
         self.scheduler.remove(self.scheduler.agents[index])
 

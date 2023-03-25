@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 database/data/
 database/logs/
+cascad/settings.py
+cascad/settings.py

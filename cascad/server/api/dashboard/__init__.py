@@ -46,12 +46,14 @@ def init_dashboard(server):
 
             html.Div(id='page-content', children=[html.H1(children='Data is loading......',
                                     style={'textAlign': 'center'})]),
+
+            dcc.Interval(id='interval', interval=15000, n_intervals=1)
          ]
     )
     
     @dash_app.callback(dash.dependencies.Output('page-content', 'children'),
-                  [dash.dependencies.Input('url', 'pathname')])
-    def display_page(pathname):
+                  [dash.dependencies.Input('url', 'pathname'), dash.dependencies.Input('interval', 'n_intervals')])
+    def display_page(pathname, n):
         _id = pathname.split('/')[-1]
         print(_id)
         analyze = analyze_mbm.Analyze(_id)
@@ -65,7 +67,6 @@ def init_dashboard(server):
         TOPN_DF = analyze.get_code_iter(99)
 
         return [
-
             html.Hr(),
             dbc.Row(
                 [
@@ -93,7 +94,6 @@ def init_dashboard(server):
                 generate_table(TOPN_DF))
                 , align='center'
             ),
-    
             html.Hr(),
         ]
  
