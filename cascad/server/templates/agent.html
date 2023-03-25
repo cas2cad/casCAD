@@ -14,10 +14,9 @@
     <section class="panel panel-default">
         <div class="panel-body">
             <div class="row">
-
                 {% for agent in agents %}
-                <div class="col-md-4 mb-4">
-                    <div class="card text-white bg-primary h-100">
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="card text-white bg-primary w-100 agent-card">
                         <div class="card-body d-flex flex-column justify-content-between">
                             <h5 class="card-title"><b>{{agent.agent_name}}</b></h5>
                             <a href="/agents/{{agent.agent_name}}" class="btn btn-light mt-2">Agent Details</a>
@@ -32,10 +31,11 @@
 
 {% endblock %} {% block scripts %}
 <style>
-    .card {
+    .agent-card {
         width: 18rem;
         border: solid 1px green;
         border-radius: 5px;
+        margin: 0 auto;
     }
     
     .btn-light {

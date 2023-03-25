@@ -68,6 +68,10 @@ def component(agent_name=None):
     #     return render_template('agent_detail.html', agent=agent)
 
 
+@home_bp.route("/examples", methods=['GET', 'POST'])
+def use_cases():
+    return render_template('comming_soon.html')
+
 @home_bp.route("/config_experiment", methods=["GET", "POST"])
 @home_bp.route("/config_experiment/<step>", methods=["GET", "POST"])
 def config_experiment(step=0):

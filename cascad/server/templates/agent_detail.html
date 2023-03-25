@@ -12,17 +12,13 @@
         </div>
     </div>
 
-
-
     <section class="panel panel-default">
         <header class="panel-heading">
             智能体描述
         </header>
         <div class="panel-body">
-
             <div class="row">
-                <!-- <h3 class="text-center">{{agent.agent_name}}</h3> -->
-                <p class="fs-1">{{agent.agent_describe}}</p>
+                <p class="fs-4">{{agent.agent_describe}}</p>
             </div>
     </section>
 
@@ -30,14 +26,10 @@
         <header class="panel-heading">
             智能体参数
         </header>
-
         <div class="panel-body">
             <div class="row">
-                <!-- <h3 class="text-center">{{agent.agent_name}}</h3> -->
-                <!-- <p class="fs-1">{{agent.agent_params}}</p> -->
                 <ul class="list-group">
                     {% for param in agent.agent_params %}
-                    <!-- <ul> {{param }}</ul> -->
                     <li class="list-group-item">{{param}}</li>
                     {% endfor %}
                 </ul>
@@ -49,47 +41,22 @@
             智能体适用实验
         </header>
         <div class="panel-body">
-
             <div class="row">
-                <!-- <h3 class="text-center">{{agent.agent_name}}</h3> -->
-                <p class="fs-1">{{agent.corresponding_experiment}}</p>
+                <p class="fs-4">{{agent.corresponding_experiment}}</p>
             </div>
     </section>
-
     </div>
-
-    </div>
-
-    {% endblock %}
-
-    <script>
-        $(document).ready(function() {
-            $("#clickMe").on('click', function() {
-                console.log('clicked, making a request')
-
-                post('/', {
-                    'key-1': 'val-1'
-                });
-            })
-        })
-
-        function post(path, params, method = 'post') {
-            const form = document.createElement('form');
-            form.method = method;
-            form.action = path;
-
-            for (const key in params) {
-                if (params.hasOwnProperty(key)) {
-                    const hiddenField = document.createElement('input');
-                    hiddenField.type = 'hidden';
-                    hiddenField.name = key;
-                    hiddenField.value = params[key];
-
-                    form.appendChild(hiddenField);
-                }
-            }
-
-            document.body.appendChild(form);
-            form.submit();
+    {% endblock %} {% block scripts %}
+    <style>
+        .panel {
+            border: none;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
-    </script>
+        
+        .panel-heading {
+            background-color: #f8f9fa;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+    </style>
+    {% endblock %}
