@@ -69,7 +69,7 @@ class AgentModel(Document):
             self.creation_date = datetime.datetime.now()
 
         tmp_state = copy.deepcopy(self.state)
-        ## add the step infor
+        # add the step infor
         tmp_state['step'] = self.step
         # self.state_history.append(tmp_state)
 
