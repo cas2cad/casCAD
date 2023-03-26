@@ -3,7 +3,7 @@ import os
 sys.path.append('..')
 sys.path.append('.')
 import unittest
-from cascad.models.datamodel import AgentModel, TransferModel, ApprovelModel, AgentTypeModel, ComputeExperimentModel, ComputeExperimentTypeModel
+from cascad.models.datamodel import AgentModel, TransferModel, ApprovelModel, AgentTypeModel, ComputeExperimentModel, ComputeExperimentTypeModel, ComponentTypeModel
 
 from cascad.agents.aritifcial_system.chain import ChainBase
 from cascad.agents.aritifcial_system.contracts.token.ERC20 import  ERC20
@@ -13,31 +13,42 @@ class TestModel(unittest.TestCase):
         pass
 
     def test_save(self): 
-        agentModel = AgentModel(
-            unique_id="01",
-            step=1,
-            state={'step': 1}
-        )
-        agentModel.save()
+    #     component = ComponentTypeModel(
+    #             unique_id = "004" ,   
+    #             component_name ="tst", 
+    # component_params = [] ,
+    # component_description = "ss", 
+    # corresponding_experiment = "ss" ,
+    #     )
+    #     component.save()
 
-        agents = AgentModel.objects(unique_id="01")
-        for agent in agents:
-            print(agent.unique_id)
+        components = ComponentTypeModel.objects.all()
+        print(list(components))
+        # agentModel = AgentModel(
+        #     unique_id="01",
+        #     step=1,
+        #     state={'step': 1}
+        # )
+        # agentModel.save()
 
-        transfer = TransferModel(
-            unique_id="002",
-            sender = "0x111",
-            recipient="0x222",
-            amount = 1)
-        transfer.save()
+        # agents = AgentModel.objects(unique_id="01")
+        # for agent in agents:
+        #     print(agent.unique_id)
 
-        approval = ApprovelModel(
-            unique_id="003",
-            owner="0x111",
-            spender="0x333",
-            amount=1.1
-        )
-        approval.save()
+        # transfer = TransferModel(
+        #     unique_id="002",
+        #     sender = "0x111",
+        #     recipient="0x222",
+        #     amount = 1)
+        # transfer.save()
+
+        # approval = ApprovelModel(
+        #     unique_id="003",
+        #     owner="0x111",
+        #     spender="0x333",
+        #     amount=1.1
+        # )
+        # approval.save()
             
     def test_erc20(self):
         c = ChainBase()
@@ -94,7 +105,7 @@ class TestModel(unittest.TestCase):
         result = [
             (str(agent_model.unique_id)[-4:], agent_model.state['token']) for agent_model in agent_models
         ]
-        print(result)
+        # print(result)
 
 
 

@@ -21,11 +21,11 @@ class AgentTypeModel(Document):
     agent_describe = StringField()
     corresponding_experiment = StringField()
 
-class ComponentModel(Document):
+class ComponentTypeModel(Document):
     unique_id = StringField(required=True, primary_key=True)
     component_name = StringField()
     component_params = ListField(StringField(), default=[])
-    component_description = StringField()
+    component_describe = StringField()
     corresponding_experiment = StringField()
 
 

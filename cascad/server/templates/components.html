@@ -15,14 +15,13 @@
         <div class="panel-body">
             <div class="row">
 
-                {% set components = [{'name': 'LMSR', 'description': 'Logarithmic Market Scoring Rule'}, {'name': 'FPMM', 'description': 'Fixed Product Market Maker'}, {'name': 'RelativeMajority Voting', 'description': 'Relative Majority Voting Method'}] %} {% for component
-                in components %}
+                {% for component in components %}
                 <div class="col-md-4 mb-4 d-flex">
                     <div class="card text-white bg-primary w-100 component-card">
                         <div class="card-body d-flex flex-column justify-content-between">
-                            <h5 class="card-title"><b>{{component.name}}</b></h5>
-                            <p class="card-text">{{component.description}}</p>
-                            <a href="/components/{{component.name}}" class="btn btn-light mt-2">Component Details</a>
+                            <h5 class="card-title"><b>{{component.component_name}}</b></h5>
+                            <p class="card-text">{{component.describe}}</p>
+                            <a href="/components/{{component.component_name}}" class="btn btn-light mt-2">Component Details</a>
                         </div>
                     </div>
                 </div>

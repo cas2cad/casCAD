@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block mainbody %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="page-header"><i class="fa fa-cogs"></i> 组件详情</h3>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="\">Home</a></li>
+                <li><i class="fa fa-cogs"></i>智能组件管理</li>
+                <li><i class="fa fa-cogs"></i>{{component.component_name}}</li>
+            </ol>
+        </div>
+    </div>
+    <section class="panel panel-default">
+        <header class="panel-heading">
+            组件描述
+        </header>
+        <div class="panel-body">
+            <div class="row">
+                <p class="fs-4">{{component.component_describe}}</p>
+            </div>
+    </section>
+
+    <section class="panel panel-default">
+        <header class="panel-heading">
+            组件参数
+        </header>
+        <div class="panel-body">
+            <div class="row">
+                <ul class="list-group">
+                    {% for param in component.component_params %}
+                    <li class="list-group-item">{{param}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+    </section>
+
+    <section class="panel panel-default">
+        <header class="panel-heading">
+            组件适用实验
+        </header>
+        <div class="panel-body">
+            <div class="row">
+                <p class="fs-4">{{component.corresponding_experiment}}</p>
+            </div>
+    </section>
+    </div>
+    {% endblock %} {% block scripts %}
+    <style>
+        .panel {
+            border: none;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .panel-heading {
+            background-color: #f8f9fa;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+    </style>
+    {% endblock %}

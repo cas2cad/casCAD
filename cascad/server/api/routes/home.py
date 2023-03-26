@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, url_for, request
-from cascad.models.datamodel import AgentTypeModel, ComputeExperimentModel, ComputeExperimentTypeModel, AgentModel,GeneResultModel,ExperimentResultModel, ComponentModel
+from cascad.models.datamodel import AgentTypeModel, ComputeExperimentModel, ComputeExperimentTypeModel, AgentModel,GeneResultModel,ExperimentResultModel, ComponentTypeModel
 from pyecharts import options as opts
 from pyecharts.charts import Bar, Scatter
 from jinja2 import Markup
@@ -33,9 +33,9 @@ def index():
 def compute(page=0):
     page = int(page)
     if page == 0:
-        experiments = ComputeExperimentModel.objects.limit(5)
+        experiments = ComputeExperimentModel.objects.order_by('creation_date').limit(5)
     else:
-        experiments = ComputeExperimentModel.objects.skip(page * 5).limit(5)
+        experiments = ComputeExperimentModel.objects.order_by('creation_date').skip(page * 5).limit(5)
     return render_template('compute_experiment.html', experiments=experiments, page=page)
 
 @home_bp.route("/agents", methods=['GET', 'POST'])
@@ -55,17 +55,17 @@ def agent(agent_name=None):
 
 @home_bp.route("/components", methods=['GET', 'POST'])
 @home_bp.route("/components/<component_name>", methods=['GET', 'POST'])
-def component(agent_name=None):
+def component(component_name=None):
     # if request.method == 'POST':
     #     agent_type = request.form['agent_type']
 
     # else:
-    if not agent_name:
-        components = ComponentModel.objects.all()
-        return render_template('components.html', compoents=components)
-    # else:
-    #     agent = ComponentModel.objects(agent_name=agent_name).first()
-    #     return render_template('agent_detail.html', agent=agent)
+    if not component_name:
+        components = ComponentTypeModel.objects.all()
+        return render_template('components.html', components=components)
+    else:
+        component = ComponentTypeModel.objects(component_name=component_name).first()
+        return render_template('component_detail.html', component=component)
 
 
 @home_bp.route("/examples", methods=['GET', 'POST'])
