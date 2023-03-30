@@ -116,6 +116,9 @@ class Analyze:
 
 
     def get_code_iter(self, iter):
+        iter_max = self.system_df['iter'].max()
+        if iter > iter_max:
+            iter = iter_max
         code_data_df = self.system_df[self.system_df['iter'] == iter]
         code_data_df = code_data_df[['SBMT Holder', 'SAsset Holder', 'SAsset Bulliser', 'SAsset Bearisher', 'Short-Term Speculator', 'Init Tokens']]
         code_data_df['Init Tokens'] = code_data_df['Init Tokens'] * 250
