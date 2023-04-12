@@ -1,5 +1,5 @@
 # from aletheia.settings import BASE_DIR
-from cascad.models.datamodel import GeneResultModel, GeneResultModelRound2
+from cascad.models.datamodel import GeneResultModel, GeneResultModelRound0, GeneResultModelRound2
 from cascad.settings import BASE_DIR
 # from aletheia.artificial_system.oracle import Oracle
 # from aletheia.scenario_generator.timeline import TimeLine
@@ -54,7 +54,7 @@ class Analyze:
 
         pass
 
-    def create_multiline(self, columns=['SBMT Holder', 'SAsset Holder', 'SAsset Bulliser', 'SAsset Bearisher', 'Short-Term Speculator'], x='iter'):
+    def create_multiline(self, columns=['SMAMT Holder', 'SAsset Holder', 'SAsset Bulliser', 'SAsset Bearisher', 'Short-Term Speculator'], x='iter'):
         df = self.system_df
         result = {
             x: [],
@@ -120,7 +120,7 @@ class Analyze:
         if iter > iter_max:
             iter = iter_max
         code_data_df = self.system_df[self.system_df['iter'] == iter]
-        code_data_df = code_data_df[['SBMT Holder', 'SAsset Holder', 'SAsset Bulliser', 'SAsset Bearisher', 'Short-Term Speculator', 'Init Tokens']]
+        code_data_df = code_data_df[['SMAMT Holder', 'SAsset Holder', 'SAsset Bulliser', 'SAsset Bearisher', 'Short-Term Speculator', 'Init Tokens']]
         code_data_df['Init Tokens'] = code_data_df['Init Tokens'] * 250
         return code_data_df.round(2)
 
@@ -129,17 +129,34 @@ class Analyze:
         exp_data = []
         if round == 2:
             resultModel = GeneResultModelRound2
+        elif round == 0:
+            resultModel = GeneResultModelRound0
         else:
             resultModel = GeneResultModel
-            
-        for item in resultModel.objects(experiment_id=self._id).only('code', 'loss', 'iter'):
-            row = [str(item.pk), item.iter] + item.code + item.loss
-            exp_data.append(row)
+
+        if round ==0 or round == 2:
+            for item in resultModel.objects.only('code', 'loss', 'iter'):
+                row = [str(item.pk), item.iter] + item.code + item.loss
+                exp_data.append(row)
+        else:
+            for item in resultModel.objects(experiment_id=self._id).only('code', 'loss', 'iter'):
+                row = [str(item.pk), item.iter] + item.code + item.loss
+                exp_data.append(row)
         
-        columns = ['id', 'iter', 'scenorio', 'SBMT Holder', 'SAsset Holder', 'SAsset Bulliser', 'SAsset Bearisher', 'Short-Term Speculator', 'Init Tokens', 'loss1', 'loss2', 'loss3', 'loss4', 'loss5']
-
+        columns = ['id', 'iter', 'scenorio', 'SMAMT Holder', 'SAsset Holder', 'SAsset Bulliser', 'SAsset Bearisher', 'Short-Term Speculator', 'Init Tokens', 'loss1', 'loss2', 'loss3', 'loss4', 'loss5']
         system_df = pd.DataFrame(exp_data, columns=columns)
+        columns_to_normalize = ['SMAMT Holder', 'SAsset Holder', 'SAsset Bulliser', 'SAsset Bearisher',
+                                'Short-Term Speculator']
 
+
+        if round == 2:
+            system_df['Short-Term Speculator'] = 0.2
+            columns_to_normalize = ['SMAMT Holder', 'SAsset Holder', 'SAsset Bulliser', 'SAsset Bearisher']
+            remaining_sum = 1 - system_df['Short-Term Speculator']
+            system_df[columns_to_normalize] = system_df[columns_to_normalize].div(
+                system_df[columns_to_normalize].sum(axis=1), axis=0).multiply(remaining_sum, axis=0)
+        else:
+            system_df[columns_to_normalize] = system_df[columns_to_normalize].div(system_df[columns_to_normalize].sum(axis=1), axis=0)
         system_df['MEL'] = system_df[['loss1', 'loss2', 'loss3', 'loss4', 'loss5']].mean(axis=1)
         system_df['RL'] = system_df[['loss1', 'loss2', 'loss3', 'loss4', 'loss5']].std(axis=1)
 

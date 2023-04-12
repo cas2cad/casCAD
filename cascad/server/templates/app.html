@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block mainbody %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="page-header"><i class="fa fa-search"></i> Denovel DAO  </h3>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+                <li><i class="fa fa-search"></i>App</li>
+            </ol>
+        </div>
+    </div>
+    <section class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                {% for app in apps %}
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="card text-white bg-primary w-100 app-card">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title"><b>{{app.app_name}}</b></h5>
+                            <a href="/apps/{{app.app_name}}" class="btn btn-light mt-2">App Details</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                 <div class="col-md-4 mb-4 d-flex">
+                    <div class="card text-white bg-primary w-100 app-card">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title"><b>Denovel DAO</b></h5>
+                            <a href="https://denovel.cn" class="btn btn-light mt-2">App Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+{% block scripts %}
+<style>
+    .app-card {
+        width: 18rem;
+        border: solid 1px green;
+        border-radius: 5px;
+        margin: 0 auto;
+    }
+    .btn-light {
+        color: #007BFF;
+    }
+    .btn-light:hover {
+        color: #0056B3;
+        background-color: #F8F9FA;
+    }
+</style>
+<script>
+    function post(path, params, method = 'post') {
+        const form = document.createElement('form');
+        form.method = method;
+        form.action = path;
+        for (const key in params) {
+            if (params.hasOwnProperty(key)) {
+                const hiddenField = document.createElement('input');
+                hiddenField.type = 'hidden';
+                hiddenField.name = key;
+                hiddenField.value = params[key];
+                form.appendChild(hiddenField);
+            }
+        }
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>
+{% endblock %}

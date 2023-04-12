@@ -22,15 +22,19 @@ from cascad.experiment.pargov.gnosystem import GNOSystem
 
 base_path = os.path.join(BASE_DIR, 'resources', 'datasets')
 
+
 # random.seed(10)
 # np.random.seed(10)
 
 class ParExperiment(Experiment):
-    def __init__(self, file_path='', beta_a=3, beta_b=3, risk_coef_up=0, risk_coef_down=0, belief_weight_up = 0.5, belief_weight_down=0, belief_reliable_up=1, belief_reliable_down =0.5, infor_agent_per=0.2, info_arrive_lam=5):
+    def __init__(self, file_path='', beta_a=3, beta_b=3, risk_coef_up=0, risk_coef_down=0, belief_weight_up=0.5,
+                 belief_weight_down=0, belief_reliable_up=1, belief_reliable_down=0.5, infor_agent_per=0.2,
+                 info_arrive_lam=5, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.timeline = TimeLine()
         self.gnosystem = GNOSystem(self.timeline)
         self.scheduler = BaseScheduler(self)
-        self.file_path  = file_path
+        self.file_path = file_path
 
         # parameters
         self.beta_a = beta_a
@@ -78,9 +82,9 @@ class ParExperiment(Experiment):
         for votes in gip_datas:
             if votes[3] not in result.keys():
                 result[votes[3]] = []
-                result[votes[3]].append({votes[2] : votes[1]})
+                result[votes[3]].append({votes[2]: votes[1]})
             else:
-                result[votes[3]].append({votes[2] : votes[1]})
+                result[votes[3]].append({votes[2]: votes[1]})
 
         vote_result = {}
         for day in range(8):
@@ -107,18 +111,18 @@ class ParExperiment(Experiment):
                     agent.update_belief_with_info(info, proposal._id)
 
     def get_info_avg_impact(self, positive):
-        
+
         n = np.random.poisson(self.info_arrive_lam)
         if n == 0:
             return 0
         infos = np.random.uniform(0, 0.5, n)
 
-        return float(sum(infos)/n)
+        return float(sum(infos) / n)
 
     def new_agent(self):
         gip_1_datas = self.load_data_from_csv('gip1.csv')
         gip_2_datas = self.load_data_from_csv('gip3.csv')
-        datas = gip_1_datas  + gip_2_datas
+        datas = gip_1_datas + gip_2_datas
         gip_datas = []
         address_set = set()
         for data in datas:
@@ -133,7 +137,6 @@ class ParExperiment(Experiment):
         infor_num = int(agent_num * self.infor_agent_per)
         infor_idx = random.sample(list(range(agent_num)), infor_num)
 
-
         for idx, data in enumerate(gip_datas):
             belief_weight_middle = (self.belief_weight_up + self.belief_weight_down) / 2
             u_no = np.random.uniform(self.belief_weight_down, belief_weight_middle)
@@ -143,7 +146,7 @@ class ParExperiment(Experiment):
 
             vote_day = data[3]
             # if vote_day == 0:
-                # vote_day = 1
+            # vote_day = 1
             vote_choice = int(data[2])
             balance = data[1]
             address = data[0]
@@ -152,7 +155,9 @@ class ParExperiment(Experiment):
             else:
                 available = 0
 
-            agent = InforAgent(address, self.gnosystem, u_yes, u_no, risk_coeffient, available, vote_day, {GNO: float(balance), DAI:5000}, self.beta_a, self.beta_b, self.belief_reliable_up, self.belief_reliable_down, vote_choice=vote_choice)
+            agent = InforAgent(address, self.gnosystem, u_yes, u_no, risk_coeffient, available, vote_day,
+                               {GNO: float(balance), DAI: 5000}, self.beta_a, self.beta_b, self.belief_reliable_up,
+                               self.belief_reliable_down, vote_choice=vote_choice)
 
             self.scheduler.add(agent)
 
@@ -181,13 +186,13 @@ class ParExperiment(Experiment):
         self.info_agent()
 
         if self.timeline.tick >= self.max_step:
-        # if not self.gnosystem.activate_proposals:
+            # if not self.gnosystem.activate_proposals:
             self.running = False
 
         if self.timeline.tick % 7 == 0 and self.timeline.tick != 0:
             # print(self.evaluate())
             self.evaluate()
-            
+
         if self.timeline.tick == 7:
             self.add_proposal('gip_1')
             # self.add_proposal('gip_3')
@@ -210,7 +215,6 @@ class ParExperiment(Experiment):
         if self.timeline.tick == 28:
             self.add_proposal('gip_3')
 
-
         self.gnosystem.step()
         self.timeline.step()
 
@@ -225,7 +229,7 @@ class ParExperiment(Experiment):
 
         proposals = self.gnosystem.finished_proposals
         length = len(proposals)
-        
+
         consist_count = 0
         for proposal in proposals:
             vote_result = 1 if proposal.passed else 0
@@ -236,7 +240,6 @@ class ParExperiment(Experiment):
                 consist_count += 1
         loss_2 = float(consist_count / length)
 
-
         agents = self.scheduler.agents
         avaliable_agents = [agent.total_wealth()[1] - agent.init_GNO for agent in agents]
         wealth_loss = [x for x in avaliable_agents if x >= 0]
@@ -245,11 +248,10 @@ class ParExperiment(Experiment):
         else:
             loss_3 = float(len(wealth_loss) / len(avaliable_agents))
 
-
         self.result.append([loss_1, loss_2, loss_3])
 
         # if loss_2 <= 0.5:
-            # print('debug')
+        # print('debug')
         return loss_1, loss_2, loss_3
 
 

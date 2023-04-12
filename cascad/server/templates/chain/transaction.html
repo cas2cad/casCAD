@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>交易{{ transaction.hash }}</title>
+</head>
+<body>
+    <h1>交易{{ transaction.hash }}</h1>
+    <p>区块高度: {{ transaction.blockNumber }}</p>
+    <p>交易索引: {{ transaction.transactionIndex }}</p>
+    <p>发送方: {{ transaction.from }}</p>
+    <p>接收方: {{ transaction.to }}</p>
+    <p>发送ETH数量: {{ transaction.value }}</p>
+    <p>Gas价格: {{ transaction.gasPrice }}</p>
+    <p>Gas用量: {{ transaction.gas }}</p>
+    <p>数据: {{ transaction.input }}</p>
+</body>
+</html>

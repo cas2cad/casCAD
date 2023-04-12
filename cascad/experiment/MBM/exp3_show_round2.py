@@ -22,31 +22,55 @@ analyze = analyze.Analyze('exp3')
 analyze.load_data(round=2)
 GL_RL_DF = analyze.create_multiline_RL_GL()
 GL_RL_fig = px.line(GL_RL_DF, x='iter', y='value', color='color', title='RL and MEL Changed Over Iter')
+GL_RL_fig.update_layout(
+    font=dict(
+        size=18,  # 这里可以调整字体大小
+    ),
+)
+
 
 agent_df = analyze.create_multiline()
 agent_fig = px.line(agent_df, x='iter', y='value', color='color', title='Agent Proportion Over Iter')
+agent_fig.update_layout(
+    font=dict(
+        size=18,  # 这里可以调整字体大小
+    ),
+)
 
 TOPN_DF = analyze.get_code_iter(99)
 
-def generate_table(dataframe, max_rows=10):
+# def generate_table(dataframe, max_rows=10):
+#     return dbc.Table([
+#         html.Thead(
+#             html.Tr([html.Th(col) for col in dataframe.columns])
+#         ),
+#         html.Tbody([
+#             html.Tr([
+#                 html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
+#             ]) for i in range(min(len(dataframe), max_rows))
+#         ])
+#     ], style={'marginLeft': 'auto', 'marginRight': 'auto', 'textAlign': 'center'})
+
+
+def generate_table(dataframe, max_rows=40):
     return dbc.Table([
         html.Thead(
-            html.Tr([html.Th(col) for col in dataframe.columns])
+            html.Tr([html.Th(col, style={'fontSize': '20px'}) for col in dataframe.columns]),
+            style={'textAlign': 'center'}
         ),
         html.Tbody([
             html.Tr([
-                html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
+                html.Td(dataframe.iloc[i][col], style={'fontSize': '20px'}) for col in dataframe.columns
             ]) for i in range(min(len(dataframe), max_rows))
         ])
     ], style={'marginLeft': 'auto', 'marginRight': 'auto', 'textAlign': 'center'})
-
 
 
 app.layout = html.Div(
     children=[
         dcc.Location(id='url', refresh=False),
 
-        dbc.Row(dbc.Col(html.H1(children='Analysis of MBM Experiment',
+        dbc.Row(dbc.Col(html.H1(children='Analysis of MAM Experiment',
                                 style={'textAlign': 'center'}))),
 
         # dbc.Row(dbc.Col(html.Div(children='''
@@ -73,8 +97,9 @@ app.layout = html.Div(
 
         html.Hr(),
         dbc.Row(html.Div(children='''
-           Code of Top 10 Largest Lost Scenarios.
-    ''', style={'textAlign': 'center'})),
+           Code of Top 8 Largest Lost Scenarios.
+    ''', style={'textAlign': 'center', 'fontSize': '20px'})),
+        # html.Br(),
         dbc.Row(
             dbc.Col(
             generate_table(TOPN_DF))

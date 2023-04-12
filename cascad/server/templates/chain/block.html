@@ -1,0 +1,35 @@
+
+{% extends "base.html" %} {% block mainbody %}
+<body>
+<div class="container">
+    <h1>区块{{ block.number }}</h1>
+    <div class="card">
+        <div class="card-header">
+            区块信息
+        </div>
+        <div class="card-body">
+            <p>区块哈希: <span class="hash">{{ block.hash.hex }}</span></p>
+            <p>上一区块: <span class="hash">{{ block.parentHash.hex }}</span></p>
+            <p>时间戳: {{ block.timestamp }}</p>
+        </div>
+    </div>
+        <div class="card-header">
+            交易信息
+        </div>
+    {% for transaction in transactions %}
+    <div class="card mt-3">
+        <div class="card-header">
+            交易{{ forloop.counter }}
+        </div>
+        <div class="card-body">
+            <p>交易哈希: <span class="hash">{{ transaction.hash }}</span></p>
+            <p>出块交易索引: {{ transaction.transaction_index }}</p>
+            <p>发送方地址: {{ transaction.from_ }} </p>
+            <p>接收方地址: {{ transaction.to_address }} </p>
+            <p>发送的ETH数量: {{ transaction.value }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</body>
+{% endblock %}

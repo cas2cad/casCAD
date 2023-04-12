@@ -70,7 +70,7 @@ def component(component_name=None):
 
 @home_bp.route("/examples", methods=['GET', 'POST'])
 def use_cases():
-    return render_template('comming_soon.html')
+    return render_template('app.html')
 
 @home_bp.route("/config_experiment", methods=["GET", "POST"])
 @home_bp.route("/config_experiment/<step>", methods=["GET", "POST"])
@@ -165,6 +165,4 @@ def get_bar_index():
 
 @home_bp.route("/view_result/<experiment_id>")
 def view_result(experiment_id):
-    
-
     pass

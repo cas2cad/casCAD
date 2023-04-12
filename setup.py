@@ -5,7 +5,7 @@ HERE = pathlib.Path(__file__).parent
 
 README = (HERE / "README.md").read_text()
 
-setup(name='aletheia',
+setup(name='cascadv2',
       version='0.1', description='A compute governance tools', author='will holden', long_description=README,
       long_description_content_type='text/markdown',
       url='https://github.com/cas2cad/casCAD',
