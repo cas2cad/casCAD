@@ -1,19 +1,22 @@
 from flask import Blueprint, render_template, url_for, request
-from cascad.models.datamodel import AgentTypeModel, ComputeExperimentModel, ComputeExperimentTypeModel, AgentModel,GeneResultModel,ExperimentResultModel, ComponentTypeModel
+from cascad.models.datamodel import AgentTypeModel, ComputeExperimentModel, ComputeExperimentTypeModel, AgentModel, GeneResultModel, ExperimentResultModel, ComponentTypeModel
 from pyecharts import options as opts
 from pyecharts.charts import Bar, Scatter
 from jinja2 import Markup
 from cascad.experiment.token_sender import ERC20TokenWorld
-from cascad.experiment.MBM.exp import  GA as MBMExperiment
+from cascad.experiment.MBM.exp import GA as MBMExperiment
 from collections import defaultdict
+from flask_login import login_required
 
-home_bp = Blueprint('home_bp', __name__ , template_folder='templates', static_folder='static')
+home_bp = Blueprint('home_bp', __name__,
+                    template_folder='templates', static_folder='static')
 
-def token_discribute(max_step, world_id) ->  Scatter:
+
+def token_discribute(max_step, world_id) -> Scatter:
     # agent_models = AgentModel.objects(step=max_step, world_id=world_id)
-    generesult_models = ExperimentResultModel.objects(experiment_id = world_id)
+    generesult_models = ExperimentResultModel.objects(experiment_id=world_id)
     result = [
-            (agent_model.day, agent_model.result[0]) for agent_model in generesult_models 
+        (agent_model.day, agent_model.result[0]) for agent_model in generesult_models
     ]
 
     c = (
@@ -24,22 +27,31 @@ def token_discribute(max_step, world_id) ->  Scatter:
     )
     return c
 
+
+# if not logged in then jump to login page
 @home_bp.route('/', methods=['GET', 'POST'])
+@login_required
 def index():
     return render_template('index.html')
 
+
 @home_bp.route("/compute_experiment", methods=['GET', 'POST'])
 @home_bp.route("/compute_experiment/<page>", methods=['GET', 'POST'])
+@login_required
 def compute(page=0):
     page = int(page)
     if page == 0:
-        experiments = ComputeExperimentModel.objects.order_by('creation_date').limit(5)
+        experiments = ComputeExperimentModel.objects.order_by(
+            'creation_date').limit(5)
     else:
-        experiments = ComputeExperimentModel.objects.order_by('creation_date').skip(page * 5).limit(5)
+        experiments = ComputeExperimentModel.objects.order_by(
+            'creation_date').skip(page * 5).limit(5)
     return render_template('compute_experiment.html', experiments=experiments, page=page)
+
 
 @home_bp.route("/agents", methods=['GET', 'POST'])
 @home_bp.route("/agents/<agent_name>", methods=['GET', 'POST'])
+@login_required
 def agent(agent_name=None):
     # if request.method == 'POST':
     #     agent_type = request.form['agent_type']
@@ -55,6 +67,7 @@ def agent(agent_name=None):
 
 @home_bp.route("/components", methods=['GET', 'POST'])
 @home_bp.route("/components/<component_name>", methods=['GET', 'POST'])
+@login_required
 def component(component_name=None):
     # if request.method == 'POST':
     #     agent_type = request.form['agent_type']
@@ -64,47 +77,59 @@ def component(component_name=None):
         components = ComponentTypeModel.objects.all()
         return render_template('components.html', components=components)
     else:
-        component = ComponentTypeModel.objects(component_name=component_name).first()
+        component = ComponentTypeModel.objects(
+            component_name=component_name).first()
         return render_template('component_detail.html', component=component)
 
 
 @home_bp.route("/examples", methods=['GET', 'POST'])
+@login_required
 def use_cases():
     return render_template('app.html')
 
+@home_bp.route("/colony", methods=['GET', 'POST'])
+@login_required
+def colony():
+    iframe = 'https://colony.denovel.cn'
+    return render_template('colony.html', iframe=iframe)
+
 @home_bp.route("/config_experiment", methods=["GET", "POST"])
 @home_bp.route("/config_experiment/<step>", methods=["GET", "POST"])
+@login_required
 def config_experiment(step=0):
     step = int(step)
     if request.method == 'POST':
         experiment_type = request.form['experiment_type']
         if step == 1:
-            agent_types = AgentTypeModel.objects(corresponding_experiment = experiment_type)
+            agent_types = AgentTypeModel.objects(
+                corresponding_experiment=experiment_type)
             return render_template(
                 'config_1.html',
-                experiment_type = experiment_type,
-                agent_types = agent_types
+                experiment_type=experiment_type,
+                agent_types=agent_types
             )
         elif step == 2:
             selected_agents = request.form.getlist('agent_types')
             experiment_type = request.form['experiment_type']
-            experiment_params = ComputeExperimentTypeModel.objects.get(experiment_type=experiment_type).experiment_params
+            experiment_params = ComputeExperimentTypeModel.objects.get(
+                experiment_type=experiment_type).experiment_params
             agent_types = AgentTypeModel.objects.all()
             selected_agent_types = zip(agent_types, selected_agents)
 
             return render_template(
                 'config_2.html',
-                experiment_type = experiment_type,
-                experiment_params = experiment_params,
-                agent_types = agent_types,
-                selected_agents = selected_agents,
-                selected_agent_types = selected_agent_types
+                experiment_type=experiment_type,
+                experiment_params=experiment_params,
+                agent_types=agent_types,
+                selected_agents=selected_agents,
+                selected_agent_types=selected_agent_types
             )
 
         elif step == 3:
             selected_agents = request.form.getlist('agent_types')
             experiment_type = request.form['experiment_type']
-            experiment_params = ComputeExperimentTypeModel.objects.get(experiment_type=experiment_type).experiment_params
+            experiment_params = ComputeExperimentTypeModel.objects.get(
+                experiment_type=experiment_type).experiment_params
             agent_types = AgentTypeModel.objects.all()
             selected_agent_types = zip(agent_types, selected_agents)
             params_result = {
@@ -121,9 +146,10 @@ def config_experiment(step=0):
                 max_step = int(params_result['IterNumbers']) - 1
                 erc20_token_world.run()
             elif experiment_type == '_mbm_experiment':
-                experiment = MBMExperiment(popsize = int(params_result['popsize']), ngen=int(params_result['ngen']))
+                experiment = MBMExperiment(popsize=int(
+                    params_result['popsize']), ngen=int(params_result['ngen']))
                 # while experiment.running:
-                    # experiment.step() 
+                # experiment.step()
                 experiment.start()
                 world_id = experiment.unique_id
                 max_step = experiment.ngen
@@ -133,14 +159,14 @@ def config_experiment(step=0):
                 pass
             return render_template(
                 'config_3.html',
-                experiment_type = experiment_type,
-                experiment_params = experiment_params,
-                agent_types = agent_types,
-                selected_agents = selected_agents,
-                selected_agent_types = selected_agent_types,
-                params_result = params_result,
-                world_id = world_id,
-                max_step = max_step
+                experiment_type=experiment_type,
+                experiment_params=experiment_params,
+                agent_types=agent_types,
+                selected_agents=selected_agents,
+                selected_agent_types=selected_agent_types,
+                params_result=params_result,
+                world_id=world_id,
+                max_step=max_step
             )
 
     else:
@@ -159,9 +185,11 @@ def token_data(max_step, world_id):
 #     c = bar_base()
 #     return c.dump_options_with_quotes()
 
+
 @home_bp.route("/bar")
 def get_bar_index():
     return render_template("bart.html")
+
 
 @home_bp.route("/view_result/<experiment_id>")
 def view_result(experiment_id):

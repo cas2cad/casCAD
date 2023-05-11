@@ -11,6 +11,8 @@ from typing import Any, Optional
 class Experiment:
     """Base class for models."""
 
+    _seed = None
+
     def __new__(cls, *args: Any, **kwargs: Any) -> Any:
         """Create a new model object and instantiate its RNG automatically."""
         cls._seed = kwargs.get("seed", None)

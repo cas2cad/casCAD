@@ -4,6 +4,7 @@ import copy
 from mongoengine import connect, Document, StringField, DictField, ListField, DateTimeField, IntField, FloatField, \
     BooleanField
 from cascad.settings import MONGO_DB, MONGO_HOST, MONGO_PORT, MONGO_USER, MONGO_PWD
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # connect(MONGO_DB, username=MONGO_USER, password=MONGO_PWD, host=MONGO_HOST, port=MONGO_PORT)
 connect(MONGO_DB, port=MONGO_PORT)
@@ -22,6 +23,33 @@ class AgentTypeModel(Document):
     agent_params = ListField(StringField(), default=[])
     agent_describe = StringField()
     corresponding_experiment = StringField()
+
+
+class User(Document):
+    username = StringField(required=True, unique=True)
+    password = StringField(required=True)
+    email = StringField()                                                                                                 
+
+    def hash_password(self, password):
+        self.password = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
+    def to_json(self):        
+        return {"name": self.name,
+                "email": self.email}
+
+    def is_authenticated(self):
+        return True
+
+    def is_active(self):   
+        return True           
+
+    def is_anonymous(self):
+        return False          
+
+    def get_id(self):         
+        return str(self.id)
 
 
 class ComponentTypeModel(Document):
