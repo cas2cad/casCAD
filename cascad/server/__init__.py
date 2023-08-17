@@ -7,7 +7,7 @@ from cascad.settings import BASE_DIR
 from flask_bootstrap import Bootstrap
 import os
 from pyecharts.globals import CurrentConfig
-from jinja2 import Markup, Environment, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader
 from flask_login import LoginManager
 from cascad.models.datamodel import User
 # import flask_login

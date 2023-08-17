@@ -22,9 +22,9 @@ NEO4J_DATABASE = 'neo4j'
 # NEO4J_PWD = 'rem8271206'
 
 
-NEO4J_URI= 'neo4j+s://1f947c43.databases.neo4j.io'
+NEO4J_URI= 'neo4j+s://66e541b4.databases.neo4j.io'
 NEO4J_USER= 'neo4j'
-NEO4J_PWD='3VczYlk65Zm6WKfxU_MFlH3J1TwsGvhc71G_SmuY7LA'
+NEO4J_PWD='1MKFI2onb4P9wIpyZI9cnojdRl4LJAkRZkTZ6YnbG58'
 AURA_INSTANCENAME='Instance01'
 
 CCHAIN_RPC = 'http://101.35.235.176:8545'
